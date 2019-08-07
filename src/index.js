@@ -6,9 +6,12 @@ import "ant-design-vue/dist/antd.css";
 
 import Viser from "viser-vue";
 
-import routes from "./routers/";
+import routes from "./routers/index";
+// import OperPage from "./component/composedComponents/OperPage.vue";
 
-import MainLayout from "./component/layouts/MainLayout";
+// import { Global } from "g2"; // 获取 Global 全局对象
+// Global.setTheme("dark");
+
 Vue.use(Antd);
 Vue.use(Viser);
 Vue.use(VueRouter);
@@ -20,9 +23,6 @@ const router = new VueRouter({
 });
 
 new Vue({
-	components: {
-		MainLayout
-	},
-	template: "<MainLayout />",
+	template: "<router-view />",
 	router
 }).$mount("#app");

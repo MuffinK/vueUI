@@ -1,36 +1,22 @@
-const Hello = () =>
-	import(/* webpackChunkName: "group-hello" */ "../component/Hello.vue");
-
-const HelloChart = () =>
+const OperPage = () =>
 	import(
-		/* webpackChunkName: "group-Chart" */ "../component/charts/HelloChart.vue"
+		/* webpackChunkName: "group-OperPage" */ "../component/composedComponents/OperPage.vue"
 	);
-
-const DndTable = () =>
+const MentPage = () =>
 	import(
-		/* webpackChunkName: "group-table" */ "../component/carTrace/ListCarTrace.vue"
+		/* webpackChunkName: "group-OperPage" */ "../component/composedComponents/MentPage.vue"
 	);
-
-const Map = () =>
-	import(/* webpackChunkName: "group-table" */ "../component/map/Map.vue");
-
-const Exec = () =>
-	import(/* webpackChunkName: "group-table" */ "../component/exec/Exec.vue");
-const ListAllCarInfo = () =>
+const IndexPage = () =>
 	import(
-		"../component/carInfo/ListAllCarInfo.vue"
+		/* webpackChunkName: "group-OperPage" */ "../component/index/IndexPage.vue"
 	);
 
 var routes = [];
 
 routes = Array.prototype.concat.apply(routes, [
-	{ name: "/", path: "/", component: Hello },
-	{ name: "/chart", path: "/chart", component: HelloChart },
-	{ name: "/table", path: "/table", component: DndTable },
-	{ name: "/map", path: "/map", component: Map },
-	{ name: "/exec", path: "/exec", component: Exec },
-		{ name: "carInfo", path: "/carInfo", component: ListAllCarInfo }
-
+	{ name: "/OperPage", path: "/OperPage", component: OperPage },
+	{ name: "/MentPage", path: "/MentPage", component: MentPage },
+	{ name: "/IndexPage", path: "/IndexPage", component: IndexPage }
 ]);
 
 export default routes;

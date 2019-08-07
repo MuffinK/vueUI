@@ -7,7 +7,10 @@ const webpack = require('webpack');
 const path = require('path');
 module.exports = {
 	module: {
-		rules: [  {
+		rules: [ {
+			test: /\.vue$/,
+			loader: 'vue-loader'
+		}, {
 			test: /\.(ttf|woff|png|jpg)$/,
 			loader: 'file-loader'
 		}, {
@@ -23,7 +26,7 @@ module.exports = {
 		'/src/config': 'config'
 	},
 	resolve: {
-		extensions: ['.js', '.css', '.scss','.vue', '.png'],
+		extensions: ['.js', '.css', '.scss','.vue', '.png', 'ts'],
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js',
 			'element-ui-css$': 'element-ui/lib/theme-chalk/index.css'

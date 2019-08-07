@@ -10,7 +10,9 @@ const path = require('path');
 
 const prodConfig = merge(common, {
 	mode: 'production',
-	entry: ['@babel/polyfill', './src/index.js'],
+	entry: {
+		index:  './src/index.js'
+	},
 	module: {
 		rules: [{
 			test: /\.jsx?$/,
@@ -21,15 +23,39 @@ const prodConfig = merge(common, {
 					cacheDirectory: true
 				}
 			}]
-		}, {
+		},{
 			test: /\.css$/,
-			use: [{
-				loader: MiniCssExtractPlugin.loader,
-				options: { publicPath: '../'}
-			}, 'css-loader']
-		}, {
-			test: /\.vue$/,
-			loader: 'vue-loader'
+			oneOf: [
+				// 这里匹配 `<style module>`
+				{
+					resourceQuery: /module/,
+					use: [
+						"vue-style-loader",
+						{
+						loader: MiniCssExtractPlugin.loader,
+						options: { publicPath: '../'}
+					},
+						{
+							loader: "css-loader",
+							options: {
+								modules: true,
+								localIdentName: "[local]_[hash:base64:5]"
+							}
+						},
+					]
+				},
+				// 这里匹配普通的 `<style>` 或 `<style scoped>`
+				{
+					use: [
+						"vue-style-loader",
+							{
+							loader: MiniCssExtractPlugin.loader,
+							options: { publicPath: '../'}
+						},
+						"css-loader"
+					]
+				}
+			]
 		}]
 	},
 	resolve: {
@@ -41,9 +67,9 @@ const prodConfig = merge(common, {
 		]
 	},
 	plugins: [
-		new ParallelUglifyPlugin({
-			cacheDir: './.uglifyCache',
-		}),
+		// new ParallelUglifyPlugin({
+		// 	cacheDir: './.uglifyCache',
+		// }),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 			chunkFilename: '[id].css'
