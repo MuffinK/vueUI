@@ -10,6 +10,8 @@ import routes from "./routers/index";
 
 import VueECharts from "vue-echarts";
 import "echarts";
+import "echarts-gl";
+
 Vue.component("e-chart", VueECharts);
 
 // import { Global } from "g2"; // 获取 Global 全局对象
