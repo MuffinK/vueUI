@@ -6,7 +6,7 @@
 				<span
 					style="padding-left: 15px;color: green;font-size:small;margin-botton: 10px"
 				>
-					<img :src="up" style="width: 20px" />15%
+					<img :src="up" style="width: 20px" >15%
 				</span>
 			</h2>
 
@@ -46,7 +46,7 @@ import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
 
 import IotTitle from "../../baseLayout/IotTitle.vue";
 import SmallGraph from "../../baseLayout/SmallGraph.vue";
-import * as up from "../../../icons/up.png";
+import { default as up } from "../../../icons/up.png";
 const scale = [
 	{
 		dataKey: "month",

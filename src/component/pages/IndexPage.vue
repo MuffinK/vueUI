@@ -44,9 +44,7 @@ export default {
 #index-page div.ant-tabs-nav {
 	float: right;
 }
-body {
-	background: #f3f3f7;
-}
+
 h1 {
 	width: 900px;
 	margin: auto;

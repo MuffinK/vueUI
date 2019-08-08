@@ -6247,6 +6247,11 @@ raf@^3.4.0:
   dependencies:
     performance-now "^2.1.0"
 
+rambda@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.npm.taobao.org/rambda/download/rambda-2.14.0.tgz#3a482770d59f2e761bd3eb5ac92c4f5311b83a13"
+  integrity sha1-OkgncNWfLnYb0+taySxPUxG4OhM=
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/randombytes/download/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"

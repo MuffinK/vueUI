@@ -47,7 +47,7 @@ export default {
 				{
 					title: "POS",
 					text: "<div><div>text</div>sssss</div>",
-					url: "#",
+					url: "#/PosScence",
 					image: posPic
 				},
 				{

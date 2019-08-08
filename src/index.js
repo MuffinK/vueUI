@@ -22,12 +22,12 @@ Vue.use(Viser);
 Vue.use(VueRouter);
 
 process.env.NODE_ENV !== "production" && (localStorage["debug"] = "iot-*");
-
+import IotBackground from "./component/baseLayout/Background.vue";
 const router = new VueRouter({
 	routes
 });
-
+Vue.component("IotBackground", IotBackground);
 new Vue({
-	template: "<router-view />",
+	template: "<IotBackground />",
 	router
 }).$mount("#app");
