@@ -10,6 +10,8 @@ import routes from "./routers/index";
 
 import VueECharts from "vue-echarts";
 import "echarts";
+import "echarts-gl";
+
 Vue.component("e-chart", VueECharts);
 // import OperPage from "./component/composedComponents/OperPage.vue";
 

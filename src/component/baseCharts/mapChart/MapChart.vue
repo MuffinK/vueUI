@@ -1,5 +1,5 @@
 <template>
-	<e-chart :options="visualMap" />
+	<e-chart :options="polar" />
 </template>
 
 <style>
@@ -14,6 +14,7 @@
 </style>
 
 <script>
+import "./china.js";
 export default {
 	data() {
 		let geoCoordMap = {
