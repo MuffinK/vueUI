@@ -29,7 +29,8 @@ module.exports = {
 		extensions: ['.js', '.css', '.scss','.vue', '.png', 'ts'],
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js',
-			'element-ui-css$': 'element-ui/lib/theme-chalk/index.css'
+			'antd-css$': 'ant-design-vue/dist/antd.css',
+			'moment': 'moment/src/moment'
 		}
 	},
 	plugins: [

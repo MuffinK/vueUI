@@ -58,14 +58,6 @@ const prodConfig = merge(common, {
 			]
 		}]
 	},
-	resolve: {
-		// extensions: ['', '.js', '.css', '.scss','.vue'],
-		alias: {
-			'vue$': 'vue/dist/vue.esm.js',
-			'antd-css$': 'ant-design-vue/dist/antd.css',
-			'moment': 'moment/src/moment'
-		}
-	},
 	optimization: {
 		minimizer: [
 			new OptimizeCSSAssetsPlugin({})
