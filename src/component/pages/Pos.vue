@@ -1,12 +1,20 @@
 <template>
-	<MapChart />
+	<div>
+		<a-row>
+			<a-col>
+				<a-col :span="6"><ActivityLine /></a-col>
+				<a-col :span="12">col-12</a-col>
+				<a-col :span="6">col-12</a-col>
+			</a-col>
+		</a-row>
+	</div>
 </template>
 <script>
-import MapChart from "../baseCharts/mapChart/MapChart.vue";
+import ActivityLine from "../baseCharts/lineChart/ActivityLine.vue";
 export default {
-	name: "PosScenes",
+	name: "PosScense",
 	components: {
-		MapChart
+		ActivityLine
 	}
 };
 </script>

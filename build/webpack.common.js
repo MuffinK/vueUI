@@ -30,7 +30,7 @@ module.exports = {
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js',
 			'antd-css$': 'ant-design-vue/dist/antd.css',
-			'moment': 'moment/src/moment'
+			// 'moment': 'moment/src/moment'
 		}
 	},
 	plugins: [
