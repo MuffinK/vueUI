@@ -257,17 +257,6 @@ export default {
 						inRange: {
 							color: ["#F2E30B", "#F3E585", "#F3E585"]
 						}
-					},
-					{
-						type: "continuous",
-						seriesIndex: 1,
-						text: ["scatter3D"],
-						left: "right",
-						max: 100,
-						calculable: true,
-						inRange: {
-							color: ["#000", "blue", "purple"]
-						}
 					}
 				],
 				geo3D: {
@@ -895,48 +884,6 @@ export default {
 							{
 								name: "大庆",
 								value: (Math.random() * 200).toFixed(2)
-							}
-						])
-					},
-					{
-						name: "scatter3D",
-						type: "scatter3D",
-						coordinateSystem: "geo3D",
-						symbol: "pin",
-						symbolSize: 30,
-						opacity: 1,
-						label: {
-							show: false,
-							formatter: "{b}"
-						},
-						itemStyle: {
-							borderWidth: 0.5,
-							borderColor: "#fff"
-						},
-						data: convertData([
-							{
-								name: "阳泉",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "莱州",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "湖州",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "汕头",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "昆山",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "张家口",
-								value: (Math.random() * 100 + 50).toFixed(2)
 							}
 						])
 					}

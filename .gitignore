@@ -2,3 +2,4 @@ node_modules
 dist/**
 .uglifyCache
 */.DS_Store
+yarn-error.log
