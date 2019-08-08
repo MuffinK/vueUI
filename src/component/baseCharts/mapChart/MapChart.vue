@@ -248,21 +248,10 @@ export default {
 						seriesIndex: 0,
 						text: ["bar3D"],
 						calculable: true,
-						max: 300
-						// inRange: {
-						// 	color: ["#F2E30B", "#F3E585", "#F3E585"]
-						// }
-					},
-					{
-						type: "continuous",
-						seriesIndex: 1,
-						text: ["scatter3D"],
-						left: "right",
-						max: 100,
-						calculable: true
-						// inRange: {
-						// 	color: ["#000", "blue", "purple"]
-						// }
+						max: 300,
+						inRange: {
+							color: ["#F2E30B", "#F3E585", "#F3E585"]
+						}
 					}
 				],
 				geo3D: {
