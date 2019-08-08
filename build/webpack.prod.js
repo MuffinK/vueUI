@@ -7,7 +7,7 @@ const webpack = require('webpack');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const path = require('path');
-
+const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const prodConfig = merge(common, {
 	mode: 'production',
 	entry: {
@@ -60,6 +60,11 @@ const prodConfig = merge(common, {
 	},
 	resolve: {
 		// extensions: ['', '.js', '.css', '.scss','.vue'],
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js',
+			'antd-css$': 'ant-design-vue/dist/antd.css',
+			'moment': 'moment/src/moment'
+		}
 	},
 	optimization: {
 		minimizer: [
@@ -74,16 +79,17 @@ const prodConfig = merge(common, {
 			filename: '[name].css',
 			chunkFilename: '[id].css'
 		}),
-		new webpack.DllReferencePlugin({
-			context: __dirname,
-			manifest: require('../depend/vendor-manifest.json'),
-		}),
-		new AddAssetHtmlPlugin({
-			filepath: require.resolve('../depend/vendor.dll.js'),
-			outputPath: './dist',
-			includeSourcemap: true,
-			publicPath: './dist'
-		}),
+		// new webpack.DllReferencePlugin({
+		// 	context: __dirname,
+		// 	manifest: require('../depend/vendor-manifest.json'),
+		// }),
+		// new AddAssetHtmlPlugin({
+		// 	filepath: require.resolve('../depend/vendor.dll.js'),
+		// 	outputPath: './dist',
+		// 	includeSourcemap: true,
+		// 	publicPath: './dist'
+		// }),
+		new BundleAnalyzer()
 	]
 });
 module.exports = prodConfig;

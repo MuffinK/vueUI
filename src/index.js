@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Antd from "ant-design-vue";
-import "ant-design-vue/dist/antd.css";
+import "antd-css";
 
 import Viser from "viser-vue";
 
