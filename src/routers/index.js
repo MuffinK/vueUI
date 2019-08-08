@@ -13,13 +13,19 @@ const IndexPage = () =>
 const PosScence = () =>
 	import(/* webpackChunkName: "group-OperPage" */ "../component/pages/Pos.vue");
 
+const NetworkGraph = () =>
+	import(
+		/* webpackChunkName: "group-OperPage" */ "../component/networkGraph/NetworkGraph.vue"
+	);
+
 var routes = [];
 
 routes = Array.prototype.concat.apply(routes, [
 	// { name: "/OperPage", path: "/OperPage", component: OperPage },
 	// { name: "/MentPage", path: "/MentPage", component: MentPage },
 	{ name: "/IndexPage", path: "/IndexPage", component: IndexPage },
-	{ name: "/PosScence", path: "/PosScence", component: PosScence }
+	{ name: "/PosScence", path: "/PosScence", component: PosScence },
+	{ name: "/NetworkGraph", path: "/NetworkGraph", component: NetworkGraph }
 ]);
 
 export default routes;

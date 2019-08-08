@@ -26,7 +26,7 @@ module.exports = {
 		'/src/config': 'config'
 	},
 	resolve: {
-		extensions: ['.js', '.css', '.scss','.vue', '.png', 'ts'],
+		extensions: ['.js', '.css', '.scss','.vue', '.png', '.ts'],
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js',
 			'antd-css$': 'ant-design-vue/dist/antd.css',

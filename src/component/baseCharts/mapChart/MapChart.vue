@@ -1,8 +1,4 @@
 <style scoped>
-/**
- * 默认尺寸为 600px×400px，如果想让图表响应尺寸变化，可以像下面这样
- * 把尺寸设为百分比值（同时请记得为容器设置尺寸）。
- */
 .echarts {
 	width: 100%;
 	height: 500px;
@@ -232,7 +228,6 @@ export default {
 		return {
 			options: {
 				title: {
-					text: "测试bar3D、scatter3D、geo3D",
 					x: "left",
 					top: "10",
 					textStyle: {
@@ -253,10 +248,10 @@ export default {
 						seriesIndex: 0,
 						text: ["bar3D"],
 						calculable: true,
-						max: 300,
-						inRange: {
-							color: ["#F2E30B", "#F3E585", "#F3E585"]
-						}
+						max: 300
+						// inRange: {
+						// 	color: ["#F2E30B", "#F3E585", "#F3E585"]
+						// }
 					},
 					{
 						type: "continuous",
@@ -264,17 +259,17 @@ export default {
 						text: ["scatter3D"],
 						left: "right",
 						max: 100,
-						calculable: true,
-						inRange: {
-							color: ["#000", "blue", "purple"]
-						}
+						calculable: true
+						// inRange: {
+						// 	color: ["#000", "blue", "purple"]
+						// }
 					}
 				],
 				geo3D: {
 					map: "china",
 					roam: true,
 					itemStyle: {
-						color: "#9FD587",
+						// color: "#9FD587",
 						opacity: 1,
 						borderWidth: 0.4,
 						borderColor: "#000"
@@ -895,48 +890,6 @@ export default {
 							{
 								name: "大庆",
 								value: (Math.random() * 200).toFixed(2)
-							}
-						])
-					},
-					{
-						name: "scatter3D",
-						type: "scatter3D",
-						coordinateSystem: "geo3D",
-						symbol: "pin",
-						symbolSize: 30,
-						opacity: 1,
-						label: {
-							show: false,
-							formatter: "{b}"
-						},
-						itemStyle: {
-							borderWidth: 0.5,
-							borderColor: "#fff"
-						},
-						data: convertData([
-							{
-								name: "阳泉",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "莱州",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "湖州",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "汕头",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "昆山",
-								value: (Math.random() * 100 + 50).toFixed(2)
-							},
-							{
-								name: "张家口",
-								value: (Math.random() * 100 + 50).toFixed(2)
 							}
 						])
 					}
