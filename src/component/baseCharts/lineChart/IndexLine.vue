@@ -1,8 +1,6 @@
 <template>
 	<a-card hoverable>
 		<div class="title">
-			<!-- <IotTitle :title="title" /> -->
-
 			<h2>
 				{{ nowValue }}
 				<span
@@ -46,33 +44,9 @@
 // import DataSet from "@antv/data-set";
 import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
 
-import IotTitle from "../baseLayout/IotTitle.vue";
-import SmallGraph from "../baseLayout/SmallGraph.vue";
-import * as up from "../../icons/up.png";
-// const sourceData = [
-// 	{ month: "1", London: 3.9 },
-// 	{ month: "2", London: 4.2 },
-// 	{ month: "3", London: 5.7 },
-// 	{ month: "4", London: 8.5 },
-// 	{ month: "5", London: 6.7 },
-// 	{ month: "6", London: 8.5 },
-// 	{ month: "7", London: 5.7 },
-// 	{ month: "8", London: 6.6 },
-// 	{ month: "9", London: 8.5 },
-// 	{ month: "10", London: 7.5 },
-// 	{ month: "11", London: 6.6 },
-// 	{ month: "12", London: 4.8 }
-// ];
-
-// const dv = new DataSet.View().source(sourceData);
-// dv.transform({
-// 	type: "fold",
-// 	fields: ["London"],
-// 	key: "city",
-// 	value: "temperature",
-// 	bandwidth: 0.1
-// });
-// const data = dv.rows;
+import IotTitle from "../../baseLayout/IotTitle.vue";
+import SmallGraph from "../../baseLayout/SmallGraph.vue";
+import * as up from "../../../icons/up.png";
 const scale = [
 	{
 		dataKey: "month",

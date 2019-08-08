@@ -2,7 +2,8 @@
   "name": "iot-dashboard",
   "version": "1.0.0",
   "description": "my empty vue project for init",
-  "main": "index.js",
+	"main": "index.js",
+	"sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx webpack-dev-server --config=build/webpack.dev.js",
@@ -69,7 +70,7 @@
     "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.21",
     "webpack": "^4.35.3",
-    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.5",

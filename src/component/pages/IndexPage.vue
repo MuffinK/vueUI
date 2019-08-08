@@ -26,7 +26,7 @@
 </template>
 <script>
 import Accordion from "../otherComponent/Accordion";
-import IndexLine from "../lineChart/IndexLine";
+import IndexLine from "../baseCharts/lineChart/IndexLine";
 export default {
 	name: "IndexPage",
 	components: {

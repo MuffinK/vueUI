@@ -3,6 +3,7 @@ const path = require('path');
 // const UglifyJsParallelPlugin = require('webpack-uglify-parallel');
 const os = require('os');
 
+const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const vendors = [
 	'vue',
 	'ant-design-vue',
@@ -38,7 +39,8 @@ module.exports = {
 		// extensions: ['', '.js', '.css', '.scss','.vue'],
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js',
-			'antd-css$': 'ant-design-vue/dist/antd.css'
+			'antd-css$': 'ant-design-vue/dist/antd.css',
+			'moment': 'moment/src/moment'
 		}
 	},
 	plugins: [
@@ -56,6 +58,8 @@ module.exports = {
 		new webpack.DllPlugin({
 			path:  path.join(__dirname, '../depend', '[name]-manifest.json'),
 			name: '[name]_[hash]',
-		})
+		}),
+
+		new BundleAnalyzer()
 	]
 };
