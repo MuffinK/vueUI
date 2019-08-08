@@ -7,6 +7,10 @@ import "antd-css";
 import Viser from "viser-vue";
 
 import routes from "./routers/index";
+
+import VueECharts from "vue-echarts";
+import "echarts";
+Vue.component("e-chart", VueECharts);
 // import OperPage from "./component/composedComponents/OperPage.vue";
 
 // import { Global } from "g2"; // 获取 Global 全局对象
