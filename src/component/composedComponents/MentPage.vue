@@ -6,6 +6,9 @@
 				<a-row>
 					<a-col :span="24"><ChannelPie title="交易渠道"/></a-col>
 				</a-row>
+				<a-row>
+					<a-col :span="24"><MapChart title="地图"/></a-col>
+				</a-row>
 				<div v-for="(lineChart, index) in lineChartList" :key="index">
 					<TransitionTradeLine title="交易渠道" />
 				</div>
@@ -27,6 +30,7 @@ import TransitionTradeLine from "../lineChart/TransitionTradeLine";
 import MessageCount from "../barChart/MessageCount";
 import TitleChart from "../textChart/TitleChart";
 import DataTable from "../dataTable/DataTable.vue";
+import MapChart from "../mapChart/mapChart.vue";
 import { setInterval } from "timers";
 export default {
 	name: "Hello",
@@ -37,7 +41,8 @@ export default {
 		MessageCount,
 		TitleChart,
 		DataTable,
-		ChannelPie
+		ChannelPie,
+		MapChart
 	},
 	data() {
 		return {
