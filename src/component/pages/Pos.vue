@@ -4,14 +4,8 @@
 		<a-row>
 			<a-col>
 				<a-col :span="12"><MapChart /></a-col>
-				<a-col :span="12"><ActivityLine /></a-col>
-				<!-- <a-col :span="6">col-12</a-col> -->
+				<a-col :span="12"><ActivityLine /><Barchart /></a-col>
 			</a-col>
-			<a-row>
-				<a-col>
-					<a-col :span="12"><Barchart /></a-col>
-				</a-col>
-			</a-row>
 		</a-row>
 	</div>
 </template>

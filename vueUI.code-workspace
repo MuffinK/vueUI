@@ -30,6 +30,12 @@
 		},
 		"[jsonc]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+		},
+		"files.exclude": {
+			"**/.classpath": true,
+			"**/.project": true,
+			"**/.settings": true,
+			"**/.factorypath": true
+		}
 	}
 }
