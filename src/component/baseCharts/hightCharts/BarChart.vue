@@ -20,6 +20,7 @@ export default {
 		return {
 			option: {
 				chart: {
+					backgroundColor: "transparent",
 					type: "column",
 					options3d: {
 						enabled: true,
@@ -51,7 +52,7 @@ export default {
 					allowDecimals: false,
 					min: 0,
 					title: {
-						text: "水果数量"
+						text: "POS 设备数"
 					}
 				},
 				tooltip: {

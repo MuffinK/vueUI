@@ -31,5 +31,6 @@ export default class NetworkGraph extends Vue {
 #network-graph {
 	width: 100%;
 	height: 100%;
+	min-height: 700px;
 }
 </style>
