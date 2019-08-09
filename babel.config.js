@@ -1,10 +1,10 @@
 module.exports = {
 	presets: [
 		[
-			'@babel/preset-env',
+			"@babel/preset-env",
 			{
-				// targets: { ie: '11' },
-				forceAllTransforms: true
+				targets: "last 2 Chrome versions"
+				// forceAllTransforms: true
 			}
 		]
 	]

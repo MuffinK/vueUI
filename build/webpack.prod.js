@@ -5,9 +5,10 @@ const common = require('./webpack.common.js');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const webpack = require('webpack');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const path = require('path');
 const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
+
 const prodConfig = merge(common, {
 	mode: 'production',
 	entry: {
@@ -60,13 +61,12 @@ const prodConfig = merge(common, {
 	},
 	optimization: {
 		minimizer: [
-			new OptimizeCSSAssetsPlugin({})
+			new OptimizeCSSAssetsPlugin({}),
+			new TerserPlugin({parallel: true})
 		]
 	},
 	plugins: [
-		// new ParallelUglifyPlugin({
-		// 	cacheDir: './.uglifyCache',
-		// }),
+
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 			chunkFilename: '[id].css'
@@ -81,7 +81,7 @@ const prodConfig = merge(common, {
 		// 	includeSourcemap: true,
 		// 	publicPath: './dist'
 		// }),
-		new BundleAnalyzer()
+		// new BundleAnalyzer()
 	]
 });
 module.exports = prodConfig;
