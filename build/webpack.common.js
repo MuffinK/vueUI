@@ -1,7 +1,7 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+// const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
@@ -34,7 +34,7 @@ module.exports = {
 		}
 	},
 	plugins: [
-		new ModuleConcatenationPlugin(),
+		// new ModuleConcatenationPlugin(),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: './index.html',

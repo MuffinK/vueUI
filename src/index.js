@@ -5,6 +5,7 @@ import Antd from "ant-design-vue";
 import "antd-css";
 
 import routes from "./routers/index";
+import store from "./store/index"; //引入store
 
 import VueECharts from "vue-echarts";
 import "echarts";
@@ -23,5 +24,6 @@ const router = new VueRouter({
 Vue.component("IotBackground", IotBackground);
 new Vue({
 	template: "<IotBackground />",
-	router
+	router,
+	store
 }).$mount("#app");
