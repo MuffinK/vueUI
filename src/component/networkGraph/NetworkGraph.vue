@@ -1,22 +1,17 @@
 <template>
-	<div id="network-graph" :ref="network" />
+	<div id="network-graph" ref="network" />
 </template>
-<script lang="ts">
-import Vue from "vue";
-import { Component } from "vue-property-decorator";
+<script>
 import cytoscape from "cytoscape";
+import dagre from "cytoscape-dagre";
 import { networkElements, networkStyle, networkLayout } from "./GraphData";
-let cy: cytoscape.Core;
 
-@Component({})
-export default class NetworkGraph extends Vue {
-	// name = "network";
-	ddd = "aaa";
-	network = "network";
-	$refs!: {
-		network: HTMLElement;
-	};
+cytoscape.use(dagre);
 
+let cy;
+
+export default {
+	name: "NetworkGraph",
 	mounted() {
 		cy = cytoscape({
 			container: this.$refs.network,
@@ -24,8 +19,9 @@ export default class NetworkGraph extends Vue {
 			style: networkStyle,
 			layout: networkLayout
 		});
+		cy.layout({ name: "dagre", rankDir: "TB", rankSep: 10 }).run();
 	}
-}
+};
 </script>
 <style scoped>
 #network-graph {

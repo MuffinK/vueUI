@@ -2282,6 +2282,13 @@ cyclist@~0.2.2:
   resolved "https://registry.npm.taobao.org/cyclist/download/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+cytoscape-dagre@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.npm.taobao.org/cytoscape-dagre/download/cytoscape-dagre-2.2.2.tgz#5f32a85c0ba835f167efee531df9e89ac58ff411"
+  integrity sha1-XzKoXAuoNfFn7+5THfnomsWP9BE=
+  dependencies:
+    dagre "^0.8.2"
+
 cytoscape@^3.8.2:
   version "3.8.2"
   resolved "https://registry.npm.taobao.org/cytoscape/download/cytoscape-3.8.2.tgz#d78f9872c89ebb313451543312929d1036a69f30"
@@ -2289,6 +2296,14 @@ cytoscape@^3.8.2:
   dependencies:
     heap "^0.2.6"
     lodash.debounce "^4.0.8"
+
+dagre@^0.8.2:
+  version "0.8.4"
+  resolved "https://registry.npm.taobao.org/dagre/download/dagre-0.8.4.tgz#26b9fb8f7bdc60c6110a0458c375261836786061"
+  integrity sha1-Jrn7j3vcYMYRCgRYw3UmGDZ4YGE=
+  dependencies:
+    graphlib "^2.1.7"
+    lodash "^4.17.4"
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -2605,6 +2620,11 @@ electron-to-chromium@^1.3.191:
   version "1.3.202"
   resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.202.tgz#5412680d56347601ec7dc291d51bddd14b8fbd45"
   integrity sha1-VBJoDVY0dgHsfcKR1Rvd0UuPvUU=
+
+elkjs@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.npm.taobao.org/elkjs/download/elkjs-0.4.1.tgz#6b42de8572fa49642e2f0c31d5e584608e47196d"
+  integrity sha1-a0LehXL6SWQuLwwx1eWEYI5HGW0=
 
 elliptic@^6.0.0:
   version "6.5.0"
@@ -3444,6 +3464,13 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   version "4.2.0"
   resolved "https://registry.npm.taobao.org/graceful-fs/download/graceful-fs-4.2.0.tgz#8d8fdc73977cb04104721cb53666c1ca64cd328b"
   integrity sha1-jY/cc5d8sEEEchy1NmbBymTNMos=
+
+graphlib@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.npm.taobao.org/graphlib/download/graphlib-2.1.7.tgz#b6a69f9f44bd9de3963ce6804a2fc9e73d86aecc"
+  integrity sha1-tqafn0S9neOWPOaASi/J5z2Grsw=
+  dependencies:
+    lodash "^4.17.5"
 
 gsap@^2.1.3:
   version "2.1.3"
@@ -4362,7 +4389,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.5:
+lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
