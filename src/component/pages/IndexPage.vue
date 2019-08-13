@@ -33,3 +33,13 @@ import { Component } from "vue-property-decorator";
 })
 export default class IndexPage extends Vue {}
 </script>
+<style scoped>
+h1 {
+	width: 900px;
+	margin: auto;
+}
+.main-contain {
+	width: 900px;
+	margin: auto;
+}
+</style>

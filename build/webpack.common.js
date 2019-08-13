@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+
 module.exports = {
 	module: {
 		rules: [ {
@@ -17,6 +18,28 @@ module.exports = {
 			test: /\.tsx?$/,
 			loader: 'ts-loader',
 			options: {appendTsSuffixTo: [/\.vue$/]}
+		},{
+			test: /\.css$/,
+			oneOf: [
+				// 这里匹配 `<style module>`
+				{
+					resourceQuery: /module/,
+					use: [
+						"vue-style-loader",
+						{
+							loader: "css-loader",
+							options: {
+								modules: true,
+								localIdentName: "[local]_[hash:base64:5]"
+							}
+						}
+					]
+				},
+				// 这里匹配普通的 `<style>` 或 `<style scoped>`
+				{
+					use: ["vue-style-loader", "css-loader"]
+				}
+			]
 		}]
 	},
 	entry: {
@@ -45,7 +68,16 @@ module.exports = {
 			includeSourcemap: true,
 			publicPath: './config'
 		}),
-		new CopyWebpackPlugin([{from: './depend/*.woff', to: './[name].[ext]'}, {from: './depend/*.ttf', to: './[name].[ext]'}]),
+		new CopyWebpackPlugin([{
+			from: './depend/*.woff',
+			to: './[name].[ext]'
+		}, {
+			from: './depend/*.ttf',
+			to: './[name].[ext]'
+		}, {
+			from: './resources',
+			to: './'
+		}]),
 		new VueLoaderPlugin()
 	]
 };

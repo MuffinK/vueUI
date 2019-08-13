@@ -339,6 +339,7 @@ const networkStyle: cytoscape.Stylesheet[] = [
 		css: {
 			content: "data(id)",
 			shape: "rectangle",
+			backgroundColor: "#79bdff",
 			"text-valign": "center",
 			"text-halign": "center"
 		}
@@ -346,6 +347,7 @@ const networkStyle: cytoscape.Stylesheet[] = [
 	{
 		selector: ":parent",
 		css: {
+			backgroundColor: "white",
 			"text-valign": "top",
 			"text-halign": "center"
 		}

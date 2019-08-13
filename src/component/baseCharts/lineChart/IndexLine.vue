@@ -1,23 +1,25 @@
 <template>
-	<a-card hoverable>
-		<NoBoundaryLine />
-		<a-card-meta>
-			<template slot="description">
-				<div class="title">
-					<h2>
-						{{ nowValue }}
-						<span
-							style="padding-left: 15px;color: green;font-size:small;margin-botton: 10px"
-						>
-							<img :src="up" style="width: 20px" >15%
-						</span>
-					</h2>
+	<div id="index-line">
+		<a-card hoverable>
+			<NoBoundaryLine />
+			<a-card-meta>
+				<template slot="description">
+					<div class="title">
+						<h2>
+							{{ nowValue }}
+							<span
+								style="padding-left: 15px;color: green;font-size:small;margin-botton: 10px"
+							>
+								<img :src="up" style="width: 20px" />15%
+							</span>
+						</h2>
 
-					<div style="font-size: small;">{{ type }}</div>
-				</div>
-			</template>
-		</a-card-meta>
-	</a-card>
+						<div style="font-size: small;">{{ type }}</div>
+					</div>
+				</template>
+			</a-card-meta>
+		</a-card>
+	</div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
@@ -39,8 +41,8 @@ export default class TransitionTradeLine extends Mixins(SmallGraph) {
 	up = up;
 }
 </script>
-<style scope>
-.ant-card-body {
+<style scoped>
+div#index-line >>> .ant-card-body {
 	padding: 0;
 }
 .title {

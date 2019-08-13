@@ -104,7 +104,7 @@ export default {
 	}
 };
 </script>
-<style scope>
+<style scoped>
 .vue-accordion ul:hover li:hover h2 {
 	color: white;
 }

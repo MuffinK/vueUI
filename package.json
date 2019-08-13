@@ -24,6 +24,7 @@
     "axios": "^0.18.0",
     "cytoscape": "^3.8.2",
     "cytoscape-dagre": "^2.2.2",
+    "d3": "4",
     "echarts": "^4.2.1",
     "echarts-gl": "^1.1.1",
     "elkjs": "^0.4.1",

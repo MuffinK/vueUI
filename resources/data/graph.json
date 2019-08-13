@@ -1,0 +1,9 @@
+{
+
+  "nodes": [
+		{
+        "id": "ActiveMQ",
+        "group": 1
+		}
+	]
+}

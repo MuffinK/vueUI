@@ -5,16 +5,18 @@
 				<router-view />
 			</a-tab-pane>
 			<a-tab-pane key="2" tab="运维"><NetworkGraph /></a-tab-pane>
-			<a-tab-pane key="3" tab="架构">ss</a-tab-pane>
+			<a-tab-pane key="3" tab="架构" />
 		</a-tabs>
 	</div>
 </template>
 <script>
+import D3Netgraph from "../networkGraph/D3Netgraph";
 import NetworkGraph from "../networkGraph/NetworkGraph";
 export default {
 	name: "IndexPage",
 	components: {
 		NetworkGraph
+		// D3Netgraph
 	},
 	methods: {
 		callback(e) {
@@ -23,17 +25,8 @@ export default {
 	}
 };
 </script>
-<style scope>
-#index-page div.ant-tabs-nav {
+<style scoped>
+div#index-page >>> div.ant-tabs-nav {
 	float: right;
-}
-
-h1 {
-	width: 900px;
-	margin: auto;
-}
-.main-contain {
-	width: 900px;
-	margin: auto;
 }
 </style>
