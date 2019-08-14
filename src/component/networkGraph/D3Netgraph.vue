@@ -1,6 +1,6 @@
 <template>
 	<div id="network-graph">
-		<svg id="netgraph" ref="d3svg" width="600px" height="500px" />
+		<svg id="netgraph" ref="d3svg" width="100%" height="100%" />
 	</div>
 </template>
 <script>
@@ -178,7 +178,7 @@ export default {
 	stroke-opacity: 0.6;
 }
 
-.infobox {
+/* .infobox {
 	font-size: 0.9em;
 	width: 100%;
 	padding: 15px;
@@ -272,7 +272,7 @@ table.infobox2 tfoot {
 }
 table.infobox2 tfoot td {
 	font-size: 14px;
-}
+} */
 
 .nodes circle {
 	stroke: #fff;
@@ -293,7 +293,7 @@ table.infobox2 tfoot td {
 	top: 10px;
 	left: 0;
 }
-.pass {
+#network-graph >>> .pass {
 	stroke-dasharray: 10;
 	animation: dash 1s linear infinite;
 }
