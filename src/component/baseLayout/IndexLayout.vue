@@ -5,7 +5,7 @@
 				<router-view />
 			</a-tab-pane>
 			<a-tab-pane key="2" tab="运维"><NetworkGraph /></a-tab-pane>
-			<a-tab-pane key="3" tab="架构"><D3Netgraph /></a-tab-pane>
+			<a-tab-pane key="3" tab="架构" />
 		</a-tabs>
 	</div>
 </template>
@@ -16,14 +16,13 @@ import NetworkGraph from "../networkGraph/NetworkGraph";
 const tabNumbers = {
 	indexLayout: "1",
 	Operating: "1",
-	maintenance: "2",
-	struct: "3"
+	maintenance: "2"
 };
 export default {
 	name: "IndexPage",
 	components: {
-		NetworkGraph,
-		D3Netgraph
+		NetworkGraph
+		// D3Netgraph
 	},
 	computed: {
 		tabNumber: {
@@ -37,9 +36,6 @@ export default {
 						break;
 					case "2":
 						this.$router.push({ path: "/maintenance" });
-						break;
-					case "3":
-						this.$router.push({ path: "/struct" });
 						break;
 					default:
 						this.$router.push({ path: "/Operating/index" });
