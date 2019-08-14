@@ -138,35 +138,35 @@
 			},
 		{
         "id": "ActiveMQ-fileScan",
-        "group": 1
+        "group": 3
 		},
 		{
         "id": "fileScan",
-        "group": 1
+        "group": 3
 			},
 		{
         "id": "ActiveMQ-keytrade",
-        "group": 1
+        "group": 4
 		},
 		{
         "id": "kafka-keytrade",
-        "group": 1
+        "group": 4
 		},
 		{
         "id": "keytrade",
-        "group": 1
+        "group": 4
 			},
 		{
         "id": "dsf-POS",
-        "group": 1
+        "group": 5
 		},
 		{
         "id": "kafka-POS",
-        "group": 1
+        "group": 5
 		},
 		{
         "id": "POS",
-        "group": 1
+        "group": 5
 			},
 		{
         "id": "kafka-MQ",
@@ -178,11 +178,11 @@
 			},
 		{
         "id": "kafka-appbase",
-        "group": 1
+        "group": 2
 		},
 		{
         "id": "appbase",
-        "group": 1
+        "group": 2
 			},
 		{
         "id": "kafka-appts",

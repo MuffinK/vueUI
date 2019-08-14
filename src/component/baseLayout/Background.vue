@@ -1,15 +1,11 @@
 <template>
 	<div id="background" :class="[$style.background]">
-		<IndexLayout />
+		<router-view />
 	</div>
 </template>
 <script>
-import IndexLayout from "../baseLayout/IndexLayout";
 export default {
-	name: "IotBackground",
-	components: {
-		IndexLayout
-	}
+	name: "IotBackground"
 };
 </script>
 
