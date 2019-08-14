@@ -28,11 +28,10 @@ export default [
 		path: "/Operating",
 		component: IndexLayout,
 		children: IndexChildrenRouters
+	},
+	{
+		name: "index",
+		path: "*",
+		component: IndexLayout
 	}
-	// {
-	// 	name: "IndexLayout",
-	// 	path: "*",
-	// 	component: IndexLayout,
-	// 	children: IndexChildrenRouters
-	// }
 ];

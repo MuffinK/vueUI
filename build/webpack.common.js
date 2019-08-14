@@ -50,8 +50,9 @@ module.exports = {
 			publicPath: "./config"
 		}),
 		new CopyWebpackPlugin([
-			{ from: "./depend/*.woff", to: "./[name].[ext]" },
-			{ from: "./depend/*.ttf", to: "./[name].[ext]" }
+			// { from: "./depend/*.woff", to: "./[name].[ext]" },
+			// { from: "./depend/*.ttf", to: "./[name].[ext]" },
+			{ from: "./resources", to: "./" },
 		]),
 		new VueLoaderPlugin()
 	]
