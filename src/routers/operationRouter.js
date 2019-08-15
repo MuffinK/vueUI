@@ -7,7 +7,7 @@ const IndexPage = () =>
 		/* webpackChunkName: "group-OperPage" */ "../component/pages/IndexPage.vue"
 	);
 const PosScence = () =>
-	import(/* webpackChunkName: "group-OperPage" */ "../component/pages/Pos.vue");
+	import(/* webpackChunkName: "group-Pos" */ "../component/pages/Pos.vue");
 
 const IndexChildrenRouters = [
 	{

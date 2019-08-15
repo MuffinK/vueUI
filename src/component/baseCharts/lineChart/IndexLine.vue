@@ -7,9 +7,7 @@
 					<div class="title">
 						<h2>
 							{{ nowValue }}
-							<span
-								style="padding-left: 15px;color: green;font-size:small;margin-botton: 10px"
-							>
+							<span class="trade-number">
 								<img :src="up" style="width: 20px" />15%
 							</span>
 						</h2>
@@ -22,7 +20,7 @@
 	</div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
+import { Component, Prop, Mixins } from "vue-property-decorator";
 import IotTitle from "../../baseLayout/IotTitle.vue";
 import SmallGraph from "../../baseLayout/SmallGraph.vue";
 import { default as up } from "../../../icons/up.png";
@@ -47,5 +45,11 @@ div#index-line >>> .ant-card-body {
 }
 .title {
 	padding: 30px;
+}
+.trade-number {
+	padding-left: 15px;
+	color: green;
+	font-size: small;
+	margin-bottom: 10px;
 }
 </style>
