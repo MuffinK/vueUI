@@ -16,6 +16,8 @@ import qfjPic from "../../picture/atm.jpg";
 import tempPic from "../../picture/temp.jpg";
 import canteenPic from "../../picture/canteen.jpg";
 import scienPic from "../../picture/scien.jpg";
+import { mapActions } from "vuex";
+
 export default {
 	name: "Accordion",
 	components: {
@@ -101,6 +103,13 @@ export default {
 				}
 			]
 		};
+	},
+	mounted() {
+		this.resetTitleArr(["场景介绍"]);
+		this.showTitle();
+	},
+	methods: {
+		...mapActions("breadcrumb", ["showTitle", "resetTitleArr"])
 	}
 };
 </script>

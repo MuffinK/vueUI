@@ -13,6 +13,7 @@
 import MapChart from "../baseCharts/mapChart/MapChart.vue";
 import ActivityLine from "../baseCharts/lineChart/ActivityLine.vue";
 import Barchart from "../baseCharts/hightCharts/BarChart.vue";
+import { mapActions } from "vuex";
 
 export default {
 	name: "PosScense",
@@ -20,6 +21,14 @@ export default {
 		Barchart,
 		ActivityLine,
 		MapChart
+	},
+	mounted() {
+		this.invokePushItems("车押Pos");
+
+		this.hideTitle();
+	},
+	methods: {
+		...mapActions("breadcrumb", ["hideTitle", "invokePushItems"])
 	}
 };
 </script>
