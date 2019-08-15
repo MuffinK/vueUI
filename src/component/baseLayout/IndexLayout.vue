@@ -34,21 +34,17 @@ export default {
 	computed: {
 		tabNumber: {
 			get() {
+				this.$log.info("tab changed");
 				return tabNumbers[this.$route.name] || "1";
 			},
 			set(val) {
-				this.$router.push({ path: valToPath(val) || "/Operating/index" });
+				this.$router.push({ path: valToPath[val] || "/Operating/index" });
 			}
 		}
 	},
 	beforeCreate() {
 		if (this.$route.name === "index") {
 			this.$router.push({ path: "/Operating/index" });
-		}
-	},
-	methods: {
-		callback(e) {
-			console.log(e);
 		}
 	}
 };

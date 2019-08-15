@@ -9,7 +9,6 @@
 import BaseEchart from "../../baseLayout/BaseEchart.vue";
 import "./china.js";
 import { mapGetters, mapActions } from "vuex";
-console.log("MapChart.vue");
 export default {
 	mixins: [BaseEchart],
 	data() {

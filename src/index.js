@@ -11,12 +11,26 @@ import VueECharts from "vue-echarts";
 import "echarts";
 import "echarts-gl";
 
+import VueLogger from "vuejs-logger";
+
+const isProduction = process.env.NODE_ENV === "production";
+
+const options = {
+	isEnabled: true,
+	logLevel: isProduction ? "error" : "debug",
+	stringifyArguments: false,
+	showLogLevel: true,
+	showMethodName: true,
+	separator: "|",
+	showConsoleColors: true
+};
+
+Vue.use(VueLogger, options);
 Vue.component("e-chart", VueECharts);
 
 Vue.use(Antd);
 Vue.use(VueRouter);
 
-process.env.NODE_ENV !== "production" && (localStorage["debug"] = "iot-*");
 import IotBackground from "./component/baseLayout/Background.vue";
 const router = new VueRouter({
 	routes

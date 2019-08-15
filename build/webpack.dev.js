@@ -31,6 +31,7 @@ module.exports = merge(common, {
 			}
 		]
 	},
+	devtool: 'source-map',
 	plugins: [new webpack.HotModuleReplacementPlugin()],
 	devServer: {
 		host: "0.0.0.0",

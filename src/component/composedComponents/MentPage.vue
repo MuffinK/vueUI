@@ -36,9 +36,7 @@ export default {
 	name: "Hello",
 	components: {
 		Background,
-		ScenesPie,
 		TransitionTradeLine,
-		MessageCount,
 		TitleChart,
 		DataTable,
 		ChannelPie,
