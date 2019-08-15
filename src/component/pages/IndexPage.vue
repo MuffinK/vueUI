@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<h1>场景介绍</h1>
 		<Accordion />
 		<h1>物联网总览</h1>
 		<div class="main-contain">

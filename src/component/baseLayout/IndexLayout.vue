@@ -2,6 +2,7 @@
 	<div id="index-page">
 		<a-tabs v-model="tabNumber" default-active-key="1">
 			<a-tab-pane key="1" tab="运营">
+				<Breadcrumb />
 				<router-view />
 			</a-tab-pane>
 			<a-tab-pane key="2" tab="运维"><NetworkGraph /></a-tab-pane>
@@ -12,7 +13,7 @@
 <script>
 import D3Netgraph from "../networkGraph/D3Netgraph";
 import NetworkGraph from "../networkGraph/NetworkGraph";
-
+import Breadcrumb from "./Breadcrumb";
 const tabNumbers = {
 	indexLayout: "1",
 	Operating: "1",
@@ -29,6 +30,7 @@ export default {
 	name: "IndexPage",
 	components: {
 		NetworkGraph,
+		Breadcrumb,
 		D3Netgraph
 	},
 	computed: {
