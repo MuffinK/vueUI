@@ -30,7 +30,8 @@ export default class ActivityLine extends Mixins(BaseEchart) {
 			left: "3%",
 			right: "4%",
 			bottom: "3%",
-			containLabel: true
+			containLabel: true,
+			show: false
 		},
 		xAxis: [
 			{
@@ -45,12 +46,25 @@ export default class ActivityLine extends Mixins(BaseEchart) {
 					"陕西",
 					"贵州",
 					"湖南"
-				]
+				],
+				axisLine: {
+					lineStyle: {
+						color: "rgba(128, 128, 128, 0.5)"
+					}
+				}
 			}
 		],
 		yAxis: [
 			{
-				type: "value"
+				type: "value",
+				axisLabel: {
+					color: "#333"
+				},
+				axisLine: {
+					lineStyle: {
+						color: "rgba(128, 128, 128, 0.5)"
+					}
+				}
 			}
 		],
 		series: [

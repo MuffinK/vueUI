@@ -13,7 +13,6 @@ export default {
 .background {
 	width: 100%;
 	height: 100%;
-	/* z-index: -1; */
-	background: #f3f3f7;
+	background: #f5f8ff;
 }
 </style>

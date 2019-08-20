@@ -40,6 +40,7 @@ module.exports = {
 	plugins: [
 		// new ModuleConcatenationPlugin(),
 		new HtmlWebpackPlugin({
+			name: 'index',
 			filename: "index.html",
 			template: "./index.html"
 		}),

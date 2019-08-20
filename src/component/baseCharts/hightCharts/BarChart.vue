@@ -3,7 +3,7 @@
 		<XChart id="highcharts" class="high" :option="option" />
 	</div>
 </template>
-<style>
+<style scoped>
 .high {
 	background-color: transparent;
 }
@@ -29,7 +29,7 @@ export default {
 						viewDistance: 25,
 						depth: 40
 					},
-					marginTop: 80,
+					// marginTop: 80,
 					marginRight: 40
 				},
 				title: {

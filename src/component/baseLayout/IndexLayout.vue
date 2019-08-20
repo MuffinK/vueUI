@@ -1,5 +1,5 @@
 <template>
-	<div id="index-page">
+	<div id="index-layout">
 		<a-tabs v-model="tabNumber" default-active-key="1">
 			<a-tab-pane key="1" tab="运营">
 				<Breadcrumb />
@@ -36,7 +36,7 @@ export default {
 	computed: {
 		tabNumber: {
 			get() {
-				this.$log.info("tab changed");
+				// this.$log.error("tab changed");
 				return tabNumbers[this.$route.name] || "1";
 			},
 			set(val) {
@@ -52,7 +52,14 @@ export default {
 };
 </script>
 <style scoped>
-div#index-page >>> div.ant-tabs-nav {
+div#index-layout >>> div.ant-tabs-nav {
 	float: right;
+}
+div#index-layout >>> div.ant-tabs-bar {
+	color: white;
+	background: #333333e7;
+}
+div#index-layout >>> div.ant-tabs-nav-container {
+	line-height: 2.5;
 }
 </style>

@@ -601,7 +601,7 @@ export default {
 		this.options = {
 			title: {
 				x: "left",
-				top: "10",
+				top: "1",
 				textStyle: {
 					color: "#000",
 					fontSize: 14
@@ -622,18 +622,22 @@ export default {
 					calculable: true,
 					max: 300,
 					inRange: {
-						color: ["#F2E30B", "#F3E585", "#F3E585"]
+						color: ["#bcddfb", "#37a2da"]
 					}
 				}
 			],
 			geo3D: {
+				// left: "0%",
+				// right: "0%",
+				top: "top",
+				// bottom: "0%"
 				map: "china",
 				roam: true,
 				itemStyle: {
-					// color: "#9FD587",
+					color: "#bcddfb",
 					opacity: 1,
-					borderWidth: 0.4,
-					borderColor: "#000"
+					borderWidth: 0.2,
+					borderColor: "#f5f4f7ee"
 				},
 				label: {
 					show: true,

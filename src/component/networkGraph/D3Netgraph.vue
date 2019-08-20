@@ -102,11 +102,11 @@ export default {
 				.attr("target", "_blank")
 				.attr("xlink:href", d => window.location.href + "?device=" + d.id);
 
-			node.on("click", function(d, i) {
-				d3.event.preventDefault();
-				d3.event.stopPropagation();
-				// OnClickDetails(d.id);
-			});
+			// node.on("click", function(d, i) {
+			// 	d3.event.preventDefault();
+			// 	d3.event.stopPropagation();
+			// 	// OnClickDetails(d.id);
+			// });
 
 			node.call(
 				d3
@@ -175,102 +175,6 @@ export default {
 	stroke-opacity: 0.6;
 }
 
-/* .infobox {
-	font-size: 0.9em;
-	width: 100%;
-	padding: 15px;
-}
-
-table.infobox {
-	border: 2px solid #ffffff;
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-}
-table.infobox td,
-table.infobox th {
-	border: 1px solid #ffffff;
-	padding: 3px 4px;
-}
-table.infobox tbody td {
-	font-size: 13px;
-}
-table.infobox td:nth-child(even) {
-	background: #ebebeb;
-}
-table.infobox thead {
-	background: #ffffff;
-	border-bottom: 4px solid #333333;
-}
-table.infobox thead th {
-	font-size: 15px;
-	font-weight: bold;
-	color: #333333;
-	text-align: center;
-	border-left: 2px solid #333333;
-}
-table.infobox thead th:first-child {
-	border-left: none;
-}
-
-table.infobox tfoot {
-	font-size: 14px;
-	font-weight: bold;
-	color: #333333;
-	border-top: 4px solid #333333;
-}
-table.infobox tfoot td {
-	font-size: 14px;
-}
-
-.infobox2 {
-	font-size: 0.9em;
-	width: 100%;
-	padding: 15px;
-}
-
-table.infobox2 {
-	border: 2px solid #ff5555;
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-}
-table.infobox2 td,
-table.infobox th {
-	border: 1px solid #ff5555;
-	padding: 3px 4px;
-}
-table.infobox2 tbody td {
-	font-size: 13px;
-}
-table.infobox2 td:nth-child(even) {
-	background: #ebcccc;
-}
-table.infobox2 thead {
-	background: #ffffff;
-	border-bottom: 4px solid #333333;
-}
-table.infobox2 thead th {
-	font-size: 15px;
-	font-weight: bold;
-	color: #333333;
-	text-align: center;
-	border-left: 2px solid #333333;
-}
-table.infobox2 thead th:first-child {
-	border-left: none;
-}
-
-table.infobox2 tfoot {
-	font-size: 14px;
-	font-weight: bold;
-	color: #333333;
-	border-top: 4px solid #333333;
-}
-table.infobox2 tfoot td {
-	font-size: 14px;
-} */
-
 .nodes circle {
 	stroke: #fff;
 	stroke-width: 1.5px;
@@ -292,7 +196,7 @@ table.infobox2 tfoot td {
 }
 #network-graph >>> .pass {
 	stroke-dasharray: 10;
-	animation: dash 1s linear infinite;
+	animation: dash 2.5s linear infinite;
 }
 @keyframes dash {
 	to {
