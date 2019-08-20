@@ -36,7 +36,6 @@ export default {
 	computed: {
 		tabNumber: {
 			get() {
-				this.$log.info("tab changed");
 				return tabNumbers[this.$route.name] || "1";
 			},
 			set(val) {

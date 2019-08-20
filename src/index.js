@@ -11,8 +11,6 @@ import VueECharts from "vue-echarts";
 import "echarts";
 import "echarts-gl";
 
-import VueLogger from "vuejs-logger";
-
 const isProduction = process.env.NODE_ENV === "production";
 
 const options = {
@@ -25,7 +23,6 @@ const options = {
 	showConsoleColors: true
 };
 
-Vue.use(VueLogger, options);
 Vue.component("e-chart", VueECharts);
 
 Vue.use(Antd);

@@ -191,7 +191,11 @@ const state = {
 		武汉: [114.31, 30.52],
 		大庆: [125.03, 46.58]
 	},
-	covertedData: []
+	covertedData: [],
+	params: [],
+	barChartCategories: [],
+	barChart2DSeries: [],
+	barChart3DSeries: []
 };
 
 const getters = {
@@ -200,6 +204,18 @@ const getters = {
 	},
 	getCovertedData(state) {
 		return state.covertedData;
+	},
+	getParams(state) {
+		return state.params;
+	},
+	getBarChartCategories(state) {
+		return state.barChartCategories;
+	},
+	getBarChart2DSeries(state) {
+		return state.barChart2DSeries;
+	},
+	getBarChart3DSeries(state) {
+		return state.barChart3DSeries;
 	}
 };
 
@@ -216,12 +232,42 @@ const mutations = {
 			}
 		}
 		state.covertedData = res;
+	},
+	resetParams(state) {
+		state.params = [];
+	},
+	insertParams(state, item) {
+		state.params.push(item);
+	},
+	set3DSeries(state, data) {
+		state.barChart3DSeries = data;
+	},
+	set2DSeries(state, data) {
+		state.barChart2DSeries = data;
+	},
+	setBarChartCategories(state, data) {
+		state.barChartCategories = data;
 	}
 };
 
 const actions = {
 	renderCovertData(context, data) {
 		context.commit("convertData", data);
+	},
+	resetParams(context) {
+		context.commit("resetParams");
+	},
+	insertParams(context, data) {
+		context.commit("insertParams", data);
+	},
+	render3DBarChartSeries(context, data) {
+		context.commit("set3DSeries", data);
+	},
+	render2DBarChartSeries(context, data) {
+		context.commit("set2DSeries", data);
+	},
+	renderBarChartCategories(context, data) {
+		context.commit("setBarChartCategories", data);
 	}
 };
 
