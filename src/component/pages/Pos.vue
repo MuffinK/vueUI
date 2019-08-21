@@ -3,8 +3,10 @@
 		<h1>车押Pos</h1>
 		<a-row>
 			<a-col>
-				<a-col :span="12"><MapChart /></a-col>
-				<a-col :span="12"><BaseBarChart :type="type"/></a-col>
+				<a-col :span="12"><MapChart :mapdata="mapdata"/></a-col>
+				<a-col :span="12"
+					><BaseBarChart :categories="categories" :series="series" :type="type"
+				/></a-col>
 			</a-col>
 		</a-row>
 	</div>
@@ -22,7 +24,10 @@ export default {
 	},
 	data() {
 		return {
-			type: "2D"
+			type: "3D",
+			mapdata: [],
+			categories: [],
+			series: []
 		};
 	},
 	computed: {
@@ -38,7 +43,7 @@ export default {
 		this.invokePushItems("车押Pos");
 		this.hideTitle();
 		this.params;
-		this.renderCovertData([
+		this.mapdata = [
 			{
 				name: "海门",
 				value: (Math.random() * 300).toFixed(2)
@@ -606,8 +611,8 @@ export default {
 				name: "大庆",
 				value: (Math.random() * 200).toFixed(2)
 			}
-		]);
-		this.renderBarChartCategories([
+		];
+		this.categories = [
 			"广东",
 			"广西",
 			"上海",
@@ -617,10 +622,10 @@ export default {
 			"陕西",
 			"贵州",
 			"湖南"
-		]);
+		];
 
 		if (this.type == "3D") {
-			this.render3DBarChartSeries([
+			this.series = [
 				{
 					name: "活跃",
 					stack: "活跃",
@@ -631,9 +636,9 @@ export default {
 					stack: "活跃",
 					data: [220, 211, 443, 74, 26, 267, 23, 8, 569]
 				}
-			]);
+			];
 		} else {
-			this.render2DBarChartSeries([
+			this.series = [
 				{
 					name: "活跃",
 					type: "bar",
@@ -646,7 +651,7 @@ export default {
 					stack: "活跃",
 					data: [220, 211, 443, 74, 26, 267, 23, 8, 569]
 				}
-			]);
+			];
 		}
 	},
 	methods: {

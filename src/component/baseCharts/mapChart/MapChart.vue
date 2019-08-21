@@ -11,10 +11,29 @@ import "./china.js";
 import { mapGetters, mapActions } from "vuex";
 export default {
 	mixins: [BaseEchart],
+	props: {
+		mapdata: {
+			type: Array,
+			required: true
+		}
+	},
 	computed: {
 		...mapGetters("chartdata", {
-			covertedData: "getCovertedData"
+			geoCoordMap: "renderGeoCoordMap"
 		}),
+		covertedData() {
+			var res = [];
+			for (var i = 0; i < this.mapdata.length; i++) {
+				var geoCoord = this.geoCoordMap[this.mapdata[i].name];
+				if (geoCoord) {
+					res.push({
+						name: this.mapdata[i].name,
+						value: geoCoord.concat(this.mapdata[i].value)
+					});
+				}
+			}
+			return res;
+		},
 		options() {
 			console.log("222");
 			return {
@@ -119,7 +138,6 @@ export default {
 	methods: {
 		...mapActions("chartdata", [
 			//chartdata是指modules文件夹下的chartdata.js
-			"renderCovertData", //chartdata.js文件中的actions里的方法
 			"insertParams"
 		])
 	}
