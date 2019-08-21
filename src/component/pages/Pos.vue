@@ -656,13 +656,7 @@ export default {
 	},
 	methods: {
 		...mapActions("breadcrumb", ["hideTitle", "invokePushItems"]),
-		...mapActions("chartdata", [
-			"renderCovertData",
-			"resetParams",
-			"render3DBarChartSeries",
-			"render2DBarChartSeries",
-			"renderBarChartCategories"
-		])
+		...mapActions("chartdata", ["resetParams"])
 	}
 };
 </script>
