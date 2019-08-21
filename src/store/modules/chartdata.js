@@ -191,7 +191,7 @@ const state = {
 		武汉: [114.31, 30.52],
 		大庆: [125.03, 46.58]
 	},
-	covertedData: [],
+	allData: {},
 	params: [],
 	barChartCategories: [],
 	barChart2DSeries: [],
@@ -216,6 +216,9 @@ const getters = {
 	},
 	getBarChart3DSeries(state) {
 		return state.barChart3DSeries;
+	},
+	getAllData(state) {
+		return state.allData;
 	}
 };
 
@@ -231,7 +234,7 @@ const mutations = {
 				});
 			}
 		}
-		state.covertedData = res;
+		return res;
 	},
 	resetParams(state) {
 		state.params = [];
@@ -247,6 +250,14 @@ const mutations = {
 	},
 	setBarChartCategories(state, data) {
 		state.barChartCategories = data;
+	},
+	insertAllData(state, data) {
+		var obj = {};
+		for (var key in data) {
+			state.allData[key] = data[key];
+		}
+		Object.assign(obj, state.allData);
+		state.allData = obj;
 	}
 };
 
@@ -259,6 +270,9 @@ const actions = {
 	},
 	insertParams(context, data) {
 		context.commit("insertParams", data);
+	},
+	insertAllData(context, data) {
+		context.commit("insertAllData", data);
 	},
 	render3DBarChartSeries(context, data) {
 		context.commit("set3DSeries", data);

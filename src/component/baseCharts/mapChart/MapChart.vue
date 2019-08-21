@@ -13,8 +13,23 @@ export default {
 	mixins: [BaseEchart],
 	computed: {
 		...mapGetters("chartdata", {
-			covertedData: "getCovertedData"
+			allData: "getAllData",
+			geoCoordMap: "renderGeoCoordMap"
 		}),
+		covertedData() {
+			var res = [];
+			var data = this.allData["posmap"] || [];
+			for (var i = 0; i < data.length; i++) {
+				var geoCoord = this.geoCoordMap[data[i].name];
+				if (geoCoord) {
+					res.push({
+						name: data[i].name,
+						value: geoCoord.concat(data[i].value)
+					});
+				}
+			}
+			return res;
+		},
 		options() {
 			console.log("222");
 			return {
@@ -113,15 +128,11 @@ export default {
 		this.insertParams({
 			startTime: "2018-02-02",
 			endTime: "2018-08-02",
-			type: "1"
+			type: "posmap"
 		});
 	},
 	methods: {
-		...mapActions("chartdata", [
-			//chartdata是指modules文件夹下的chartdata.js
-			"renderCovertData", //chartdata.js文件中的actions里的方法
-			"insertParams"
-		])
+		...mapActions("chartdata", ["insertParams"])
 	}
 };
 </script>

@@ -30,10 +30,22 @@ export default {
 	},
 	computed: {
 		...mapGetters("chartdata", {
-			categories: "getBarChartCategories",
-			series2D: "getBarChart2DSeries",
-			series3D: "getBarChart3DSeries"
+			allData: "getAllData"
 		}),
+		series() {
+			var data = this.allData["barchat"];
+			if (data != undefined) {
+				return data.series;
+			}
+			return [];
+		},
+		categories() {
+			var data = this.allData["barchat"];
+			if (data != undefined) {
+				return data.categories;
+			}
+			return [];
+		},
 		option() {
 			return {
 				chart: {
@@ -73,7 +85,7 @@ export default {
 						depth: 40
 					}
 				},
-				series: this.series3D
+				series: this.series
 			};
 		},
 		options() {
@@ -105,7 +117,7 @@ export default {
 						type: "value"
 					}
 				],
-				series: this.series2D
+				series: this.series
 			};
 		}
 	},
@@ -113,7 +125,7 @@ export default {
 		this.insertParams({
 			startTime: "2018-02-02",
 			endTime: "2018-08-02",
-			type: "2"
+			type: "barchat"
 		});
 	},
 	methods: {
