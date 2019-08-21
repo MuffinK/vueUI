@@ -22,7 +22,7 @@ export default {
 	},
 	data() {
 		return {
-			type: "2D"
+			type: "3D"
 		};
 	},
 	computed: {
@@ -641,13 +641,7 @@ export default {
 	},
 	methods: {
 		...mapActions("breadcrumb", ["hideTitle", "invokePushItems"]),
-		...mapActions("chartdata", [
-			"insertAllData",
-			"resetParams",
-			"render3DBarChartSeries",
-			"render2DBarChartSeries",
-			"renderBarChartCategories"
-		])
+		...mapActions("chartdata", ["insertAllData", "resetParams"])
 	}
 };
 </script>

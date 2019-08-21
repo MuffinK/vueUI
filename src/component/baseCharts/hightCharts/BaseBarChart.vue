@@ -35,7 +35,15 @@ export default {
 		series() {
 			var data = this.allData["barchat"];
 			if (data != undefined) {
-				return data.series;
+				if (this.type == "2D") {
+					return data.series;
+				} else {
+					var ss = data.series;
+					for (const item of ss) {
+						item.type = "";
+					}
+					return ss;
+				}
 			}
 			return [];
 		},
