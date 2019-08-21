@@ -23,20 +23,17 @@ export default {
 		XChart
 	},
 	props: {
+		// eslint-disable-next-line vue/require-default-prop
 		type: {
-			type: String,
-			required: true
-		},
-		categories: {
-			type: Array,
-			required: true
-		},
-		series: {
-			type: Array,
-			required: true
+			type: String
 		}
 	},
 	computed: {
+		...mapGetters("chartdata", {
+			categories: "getBarChartCategories",
+			series2D: "getBarChart2DSeries",
+			series3D: "getBarChart3DSeries"
+		}),
 		option() {
 			return {
 				chart: {
@@ -76,7 +73,7 @@ export default {
 						depth: 40
 					}
 				},
-				series: this.series
+				series: this.series3D
 			};
 		},
 		options() {
@@ -108,7 +105,7 @@ export default {
 						type: "value"
 					}
 				],
-				series: this.series
+				series: this.series2D
 			};
 		}
 	},
