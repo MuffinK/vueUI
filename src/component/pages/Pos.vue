@@ -11,6 +11,7 @@
 </template>
 <script>
 import MapChart from "../baseCharts/mapChart/MapChart.vue";
+import axios from "axios";
 import BaseBarChart from "../baseCharts/hightCharts/BaseBarChart.vue";
 import { mapGetters, mapActions } from "vuex";
 
@@ -37,7 +38,16 @@ export default {
 		console.log("111");
 		this.invokePushItems("车押Pos");
 		this.hideTitle();
-		this.params;
+		var item = this.params[0];
+		var url = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+		axios
+			.get(url)
+			.then(function(response) {
+				console.log(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
 		this.insertAllData({
 			posmap: [
 				{

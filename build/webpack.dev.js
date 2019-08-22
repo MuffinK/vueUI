@@ -36,12 +36,12 @@ module.exports = merge(common, {
 	devServer: {
 		host: "0.0.0.0",
 		port: 8080,
-		// proxy: {
-		// 	"/": {
-		// 		target: "http://122.21.141.229:9081",
-		// 		secure: false
-		// 	}
-		// },
+		proxy: {
+			"/": {
+				target: "https://lu.lululuye.xyz:4443/",
+				secure: false
+			}
+		},
 		hot: true
 	}
 });

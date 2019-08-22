@@ -319,9 +319,9 @@ export default {
 	},
 	created() {
 		this.insertParams({
-			startTime: "2018-02-02",
-			endTime: "2018-08-02",
-			type: "posmap"
+			startTime: "2019-08-02 16:00:00",
+			endTime: "2019-08-02 16:30:00",
+			type: "pos09"
 		});
 	},
 	methods: {
