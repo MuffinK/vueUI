@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import collection from "./modules/collection";
-import mapdata from "./modules/mapdata";
+import chartdata from "./modules/chartdata";
 import breadcrumb from "./modules/breadcrumb";
 
 Vue.use(Vuex);
@@ -59,7 +59,7 @@ const store = new Vuex.Store({
 	actions,
 	modules: {
 		collection,
-		mapdata,
+		chartdata,
 		breadcrumb
 	}
 });

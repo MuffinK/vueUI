@@ -1,5 +1,5 @@
 <template>
-	<e-chart :options="options" theme="light" />
+	<e-chart :options="options" theme="light" :init-options="initOptions" />
 </template>
 <style scoped>
 .echarts {
@@ -8,7 +8,9 @@
 }
 </style>
 <script lang="ts">
-import { Vue } from "vue-property-decorator";
-
-export default class BaseEchart extends Vue {}
+import { Vue, Component } from "vue-property-decorator";
+@Component({})
+export default class BaseEchart extends Vue {
+	initOptions = {};
+}
 </script>

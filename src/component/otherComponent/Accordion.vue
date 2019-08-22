@@ -1,6 +1,11 @@
 <template>
 	<div>
-		<VueAccordion :items="items" :styles="styles" />
+		<VueAccordion
+			:items="items"
+			:styles="styles"
+			max-width="1200px"
+			width="1200px"
+		/>
 	</div>
 </template>
 <script>
@@ -114,6 +119,9 @@ export default {
 };
 </script>
 <style scoped>
+.vue-accordion {
+	max-width: 1200px;
+}
 .vue-accordion ul:hover li:hover h2 {
 	color: white;
 }

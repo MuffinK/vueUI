@@ -26,40 +26,6 @@ const prodConfig = merge(common, {
 						}
 					}
 				]
-			},
-			{
-				test: /\.css$/,
-				oneOf: [
-					// 这里匹配 `<style module>`
-					{
-						resourceQuery: /module/,
-						use: [
-							"vue-style-loader",
-							{
-								loader: MiniCssExtractPlugin.loader,
-								options: { publicPath: "../" }
-							},
-							{
-								loader: "css-loader",
-								options: {
-									modules: true,
-									localIdentName: "[local]_[hash:base64:5]"
-								}
-							}
-						]
-					},
-					// 这里匹配普通的 `<style>` 或 `<style scoped>`
-					{
-						use: [
-							"vue-style-loader",
-							{
-								loader: MiniCssExtractPlugin.loader,
-								options: { publicPath: "../" }
-							},
-							"css-loader"
-						]
-					}
-				]
 			}
 		]
 	},

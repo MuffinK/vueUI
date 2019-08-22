@@ -6,6 +6,9 @@ export default {
 	mixins: [BaseEcharts],
 	data() {
 		return {
+			initOptions: {
+				renderer: "svg"
+			},
 			options: {
 				grid: {
 					left: "0%",

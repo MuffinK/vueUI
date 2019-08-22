@@ -1,6 +1,6 @@
 <template>
 	<div id="index-line">
-		<a-card hoverable>
+		<a-card hoverable :bordered="false">
 			<NoBoundaryLine />
 			<a-card-meta>
 				<template slot="description">
