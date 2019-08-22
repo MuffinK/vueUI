@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const state = {
 	allData: {},
 	params: []
@@ -19,6 +21,23 @@ const mutations = {
 	insertParams(state, item) {
 		state.params.push(item);
 	},
+	getChartData(state) {
+		for (const item of state.params) {
+			var url = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+			axios
+				.get(url)
+				.then(response => {
+					var obj = {};
+					state.allData[item.type] = response;
+					Object.assign(obj, state.allData);
+					state.allData = obj;
+					console.log(response);
+				})
+				.catch(error => {
+					console.log(error);
+				});
+		}
+	},
 	insertAllData(state, data) {
 		var obj = {};
 		for (var key in data) {
@@ -38,6 +57,9 @@ const actions = {
 	},
 	insertAllData(context, data) {
 		context.commit("insertAllData", data);
+	},
+	initChartData(context, data) {
+		context.commit("getChartData", data);
 	}
 };
 

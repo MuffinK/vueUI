@@ -58,28 +58,13 @@ export default {
 			type: "3D"
 		};
 	},
-	computed: {
-		...mapGetters("chartdata", {
-			params: "getParams"
-		})
-	},
 	created() {
 		this.resetParams();
 	},
 	mounted() {
 		this.invokePushItems("Pos");
 		this.hideTitle();
-		var item = this.params[0];
-		var url = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
-		axios
-			.get(url)
-			.then(response => {
-				this.insertAllData({ [item.type]: response });
-				console.log(response);
-			})
-			.catch(error => {
-				console.log(error);
-			});
+		this.initChartData();
 		this.insertAllData({
 			barchat: {
 				categories: [
@@ -112,7 +97,11 @@ export default {
 	},
 	methods: {
 		...mapActions("breadcrumb", ["hideTitle", "invokePushItems"]),
-		...mapActions("chartdata", ["insertAllData", "resetParams"])
+		...mapActions("chartdata", [
+			"insertAllData",
+			"initChartData",
+			"resetParams"
+		])
 	}
 };
 </script>
