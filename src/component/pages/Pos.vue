@@ -74,7 +74,7 @@ export default {
 		axios
 			.get(url)
 			.then(response => {
-				this.insertAllData({ pos09: response });
+				this.insertAllData({ [item.type]: response });
 				console.log(response);
 			})
 			.catch(error => {
