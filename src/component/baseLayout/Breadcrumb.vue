@@ -1,11 +1,11 @@
 <template>
 	<div :class="showTitle ? 'contener' : 'contener2'">
-		<a :class="showTitle ? 'title' : 'titleSmall'" href="#/Operating/index">{{
-			titleArr[0]
-		}}</a>
+		<a :class="showTitle ? 'title' : 'titleSmall'" href="#/Operating/index">
+			<h1>{{ titleArr[0] }}</h1></a
+		>
 		<div v-for="(value, index) in titleArr" :key="index">
 			<div v-if="index != 0" class=" titleSmallShowUp">
-				{{ `/  ${value}` }}
+				<h1>{{ `/  ${value}` }}</h1>
 			</div>
 		</div>
 	</div>
@@ -16,7 +16,6 @@
 	font-size: 29px;
 	font-weight: bold;
 	text-decoration: none;
-	-webkit-transition: font-size 0.5s, margin-left 0.5s, width 0.5s; /* For Safari 3.1 to 6.0 */
 	transition: font-size 0.5s, margin-left 0.5s, width 0.5s;
 }
 .titleSmall:hover {
@@ -27,8 +26,10 @@
 	font-size: 15px;
 	margin-left: 10px;
 	color: #333;
-	-webkit-transition: font-size 0.5s, margin-left 0.5s, width 0.5s; /* For Safari 3.1 to 6.0 */
 	transition: font-size 0.5s, margin-left 0.5s, width 0.5s;
+}
+.titleSmall > h1 {
+	font-weight: 100;
 }
 .titleSmall:hover {
 	color: #0f90cc;
@@ -39,11 +40,7 @@
 	animation: myfirst 0.5s 0.5s;
 	opacity: 0;
 	color: #333;
-
-	/* Firefox: */
-	-moz-animation: myfirst 0.5s 0.5s forwards;
-	/* Safari and Chrome: */
-	-webkit-animation: myfirst 0.5s 0.5s forwards;
+	animation: myfirst 0.5s 0.5s forwards;
 }
 @keyframes myfirst {
 	from {
@@ -65,7 +62,7 @@
 .contener {
 	display: flex;
 	flex-direction: row;
-	width: 900px;
+	width: 1200px;
 	margin: auto;
 	-webkit-transition: font-size 0.5s, margin 0.5s, width 0.5s; /* For Safari 3.1 to 6.0 */
 	transition: font-size 0.5s, margin 0.5s, width 0.5s;

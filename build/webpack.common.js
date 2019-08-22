@@ -20,6 +20,42 @@ module.exports = {
 				test: /\.tsx?$/,
 				loader: "ts-loader",
 				options: { appendTsSuffixTo: [/\.vue$/] }
+			},
+			{
+				test: /\.css$/,
+				oneOf: [
+					// 这里匹配 `<style module>`
+					{
+						resourceQuery: /module/,
+						use: [
+							process.env.NODE_ENV !== "production"
+								? "vue-style-loader"
+								: {
+										loader: MiniCssExtractPlugin.loader,
+										options: { publicPath: "../" }
+								  },
+							{
+								loader: "css-loader",
+								options: {
+									modules: true,
+									localIdentName: "[local]_[hash:base64:5]"
+								}
+							}
+						]
+					},
+					// 这里匹配普通的 `<style>` 或 `<style scoped>`
+					{
+						use: [
+							process.env.NODE_ENV !== "production"
+								? "vue-style-loader"
+								: {
+										loader: MiniCssExtractPlugin.loader,
+										options: { publicPath: "../" }
+								  },
+							"css-loader"
+						]
+					}
+				]
 			}
 		]
 	},
@@ -40,6 +76,7 @@ module.exports = {
 	plugins: [
 		// new ModuleConcatenationPlugin(),
 		new HtmlWebpackPlugin({
+			name: "index",
 			filename: "index.html",
 			template: "./index.html"
 		}),
@@ -52,7 +89,7 @@ module.exports = {
 		new CopyWebpackPlugin([
 			// { from: "./depend/*.woff", to: "./[name].[ext]" },
 			// { from: "./depend/*.ttf", to: "./[name].[ext]" },
-			{ from: "./resources", to: "./" },
+			{ from: "./resources", to: "./" }
 		]),
 		new VueLoaderPlugin()
 	]

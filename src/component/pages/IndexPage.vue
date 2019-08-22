@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="index-page">
 		<Accordion />
 		<h1>物联网总览</h1>
 		<div class="main-contain">
@@ -33,12 +33,15 @@ import { Component } from "vue-property-decorator";
 export default class IndexPage extends Vue {}
 </script>
 <style scoped>
+#index-page {
+	--main-width: 1200px;
+}
 h1 {
-	width: 900px;
+	width: var(--main-width);
 	margin: auto;
 }
 .main-contain {
-	width: 900px;
+	width: var(--main-width);
 	margin: auto;
 }
 </style>
