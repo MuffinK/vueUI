@@ -21,7 +21,7 @@
 				</a-col>
 				<a-col :span="12">
 					<a-card title="每日交易量" :bordered="false" :style="cardStyle">
-						<ActivityLine />
+						<TransitionTradeLine />
 					</a-card>
 					<a-card title="分行交易量" :bordered="false" :style="cardStyle">
 						<Barchart />
@@ -33,7 +33,7 @@
 </template>
 <script>
 import MapChart from "../baseCharts/mapChart/MapChart.vue";
-import ActivityLine from "../baseCharts/lineChart/ActivityLine.vue";
+import TransitionTradeLine from "../baseCharts/lineChart/TransitionTradeLine.vue";
 import Barchart from "../baseCharts/hightCharts/BarChart.vue";
 
 import IndexLine from "../baseCharts/lineChart/IndexLine.vue";
@@ -43,7 +43,7 @@ export default {
 	name: "PosScense",
 	components: {
 		Barchart,
-		ActivityLine,
+		TransitionTradeLine,
 		MapChart,
 		IndexLine
 	},
@@ -55,7 +55,7 @@ export default {
 		};
 	},
 	mounted() {
-		this.invokePushItems("车押Pos");
+		this.invokePushItems("Pos");
 
 		this.hideTitle();
 	},

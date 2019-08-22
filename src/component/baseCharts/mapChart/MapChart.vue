@@ -636,8 +636,8 @@ export default {
 				itemStyle: {
 					color: "#bcddfb",
 					opacity: 1,
-					borderWidth: 0.2,
-					borderColor: "#f5f4f7ee"
+					borderWidth: 0.4,
+					borderColor: "#666"
 				},
 				label: {
 					show: true,

@@ -62,7 +62,7 @@
 .contener {
 	display: flex;
 	flex-direction: row;
-	width: 900px;
+	width: 1200px;
 	margin: auto;
 	-webkit-transition: font-size 0.5s, margin 0.5s, width 0.5s; /* For Safari 3.1 to 6.0 */
 	transition: font-size 0.5s, margin 0.5s, width 0.5s;

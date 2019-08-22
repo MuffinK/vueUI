@@ -1,6 +1,6 @@
 <script lang="ts">
 import BaseEchart from "../../baseLayout/BaseEchart.vue";
-import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
 import Echart from "echarts";
 
 @Component({})
