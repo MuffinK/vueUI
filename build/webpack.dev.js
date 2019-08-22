@@ -7,7 +7,6 @@ module.exports = merge(common, {
 	module: {
 		rules: []
 	},
-	devtool: "source-map",
 	plugins: [new webpack.HotModuleReplacementPlugin()],
 	devServer: {
 		host: "0.0.0.0",

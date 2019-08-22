@@ -1934,11 +1934,6 @@ connect-history-api-fallback@^1.6.0:
   resolved "https://registry.npm.taobao.org/connect-history-api-fallback/download/connect-history-api-fallback-1.6.0.tgz#8b32089359308d111115d81cad3fceab888f97bc"
   integrity sha1-izIIk1kwjRERFdgcrT/Oq4iPl7w=
 
-consola@^2.10.1:
-  version "2.10.1"
-  resolved "https://registry.npm.taobao.org/consola/download/consola-2.10.1.tgz#4693edba714677c878d520e4c7e4f69306b4b927"
-  integrity sha1-RpPtunFGd8h41SDkx+T2kwa0uSc=
-
 console-browserify@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/console-browserify/download/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
@@ -3053,11 +3048,6 @@ es-to-primitive@^1.2.0:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
-
-es6-object-assign@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/es6-object-assign/download/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
-  integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -6223,6 +6213,11 @@ rambda@^2.14.0:
   resolved "https://registry.npm.taobao.org/rambda/download/rambda-2.14.0.tgz#3a482770d59f2e761bd3eb5ac92c4f5311b83a13"
   integrity sha1-OkgncNWfLnYb0+taySxPUxG4OhM=
 
+rambdax@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.npm.taobao.org/rambdax/download/rambdax-2.13.0.tgz#a997c8d55f837d5fa746ef906a8cd976cf1b9304"
+  integrity sha1-qZfI1V+DfV+nRu+QaozZds8bkwQ=
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/randombytes/download/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -7585,13 +7580,6 @@ vue@^2.5.21, vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha1-pysaQqTYKnIepDjRtr9V5mGVxjc=
-
-vuejs-logger@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.npm.taobao.org/vuejs-logger/download/vuejs-logger-1.5.3.tgz#fc8b7428af9c1bc252eb7deddd5638bce3b91549"
-  integrity sha1-/It0KK+cG8JS633t3VY4vOO5FUk=
-  dependencies:
-    es6-object-assign "1.1.0"
 
 vuex@^3.1.1:
   version "3.1.1"

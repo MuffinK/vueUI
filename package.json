@@ -30,6 +30,7 @@
     "gsap": "^2.1.3",
     "highcharts": "^7.1.2",
     "rambda": "^2.14.0",
+    "rambdax": "^2.13.0",
     "vue": "^2.5.21",
     "vue-accordion": "^1.0.0",
     "vue-class-component": "^7.1.0",
