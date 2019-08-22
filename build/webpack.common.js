@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
+const ThreadsPlugin = require("threads-plugin");
 module.exports = {
 	module: {
 		rules: [
@@ -75,6 +76,7 @@ module.exports = {
 	},
 	plugins: [
 		// new ModuleConcatenationPlugin(),
+		new ThreadsPlugin(),
 		new HtmlWebpackPlugin({
 			name: "index",
 			filename: "index.html",

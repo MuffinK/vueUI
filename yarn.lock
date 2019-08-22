@@ -779,6 +779,11 @@
   resolved "https://registry.npm.taobao.org/@types/q/download/@types/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha1-aQoUdbhPKohP0HzXl8APXzE1bqg=
 
+"@types/zen-observable@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.npm.taobao.org/@types/zen-observable/download/@types/zen-observable-0.8.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fzen-observable%2Fdownload%2F%40types%2Fzen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
+  integrity sha1-i2OrfxqlMhJIqtWsiQpIVlbc6k0=
+
 "@types/zrender@*":
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/@types/zrender/download/@types/zrender-4.0.0.tgz#a6806f12ec4eccaaebd9b0d816f049aca6188fbd"
@@ -1654,7 +1659,7 @@ callsites@^2.0.0:
   resolved "https://registry.npm.taobao.org/callsites/download/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
   integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
 
-callsites@^3.0.0:
+callsites@^3.0.0, callsites@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/callsites/download/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha1-s2MKvYlDQy9Us/BRkjjjPNffL3M=
@@ -3181,6 +3186,11 @@ eslint@^5:
     table "^5.2.3"
     text-table "^0.2.0"
 
+esm@^3.2.22:
+  version "3.2.25"
+  resolved "https://registry.npm.taobao.org/esm/download/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
+  integrity sha1-NCwYwp1WFXaIulzjH4Qx+7eVzBA=
+
 espree@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npm.taobao.org/espree/download/espree-4.1.0.tgz#728d5451e0fd156c04384a7ad89ed51ff54eb25f"
@@ -4424,6 +4434,13 @@ is-obj@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/is-obj/download/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
   integrity sha1-PkcprB9f3gJc19g6iW2rn09n2w8=
+
+is-observable@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/is-observable/download/is-observable-1.1.0.tgz#b3e986c8f44de950867cab5403f5a3465005975e"
+  integrity sha1-s+mGyPRN6VCGfKtUA/WjRlAFl14=
+  dependencies:
+    symbol-observable "^1.1.0"
 
 is-path-cwd@^2.0.0:
   version "2.2.0"
@@ -7047,6 +7064,11 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+symbol-observable@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+
 table@^5.2.3:
   version "5.4.4"
   resolved "https://registry.npm.taobao.org/table/download/table-5.4.4.tgz?cache=0&sync_timestamp=1563286014327&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftable%2Fdownload%2Ftable-5.4.4.tgz#6e0f88fdae3692793d1077fd172a4667afe986a6"
@@ -7129,6 +7151,26 @@ text-table@^0.2.0:
   resolved "https://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+threads-plugin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/threads-plugin/download/threads-plugin-1.0.0.tgz#1a1662fea3e2b5f984a2f60ebfc38a1ef65e2462"
+  integrity sha1-GhZi/qPitfmEovYOv8OKHvZeJGI=
+  dependencies:
+    loader-utils "^1.1.0"
+
+threads@^1.0.0-beta.4:
+  version "1.0.0-beta.4"
+  resolved "https://registry.npm.taobao.org/threads/download/threads-1.0.0-beta.4.tgz#d96ef738580c0f0c2a9c274f9604b6a7e00d1ccc"
+  integrity sha1-2W73OFgMDwwqnCdPlgS2p+ANHMw=
+  dependencies:
+    "@types/zen-observable" "^0.8.0"
+    callsites "^3.1.0"
+    debug "^4.1.1"
+    is-observable "^1.1.0"
+    zen-observable "^0.8.14"
+  optionalDependencies:
+    tiny-worker ">= 2"
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.npm.taobao.org/through2/download/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -7158,6 +7200,13 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npm.taobao.org/timsort/download/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+"tiny-worker@>= 2":
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/tiny-worker/download/tiny-worker-2.2.0.tgz#056ce92d424c8d2c6f9fb8f9a5d2e3cdcb908bca"
+  integrity sha1-BWzpLUJMjSxvn7j5pdLjzcuQi8o=
+  dependencies:
+    esm "^3.2.22"
 
 tinycolor2@^1.4.1:
   version "1.4.1"
@@ -7478,6 +7527,11 @@ vue-accordion@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/vue-accordion/download/vue-accordion-1.0.0.tgz#b3ba39b22e49037860c5a89683bd68a3e05ee3ea"
   integrity sha1-s7o5si5JA3hgxaiWg71oo+Be4+o=
+
+vue-async-computed@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.npm.taobao.org/vue-async-computed/download/vue-async-computed-3.7.0.tgz#1ca3fc2743c9e3d4399b506f3e107e2141fdc34c"
+  integrity sha1-HKP8J0PJ49Q5m1BvPhB+IUH9w0w=
 
 vue-class-component@^7.0.1, vue-class-component@^7.1.0:
   version "7.1.0"
@@ -7908,6 +7962,11 @@ yargs@13.2.4:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^13.1.0"
+
+zen-observable@^0.8.14:
+  version "0.8.14"
+  resolved "https://registry.npm.taobao.org/zen-observable/download/zen-observable-0.8.14.tgz#d33058359d335bc0db1f0af66158b32872af3bf7"
+  integrity sha1-0zBYNZ0zW8DbHwr2YVizKHKvO/c=
 
 zrender@4.0.7, zrender@^4.0.4:
   version "4.0.7"
