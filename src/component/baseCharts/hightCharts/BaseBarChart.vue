@@ -16,6 +16,7 @@
 
 <script>
 // 导入chart组件
+import * as R from "rambdax";
 import XChart from "./Charts";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -35,10 +36,10 @@ export default {
 		sortData() {
 			var data = this.allData["pos09"];
 			if (data != undefined) {
-				data.data.sort((a, b) => {
+				data.sort((a, b) => {
 					return a.scene_value - b.scene_value;
 				});
-				return data.data;
+				return data;
 			}
 			return [];
 		},

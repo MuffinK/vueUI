@@ -21,30 +21,11 @@ const mutations = {
 	insertParams(state, item) {
 		state.params.push(item);
 	},
-	getChartData(state) {
-		for (const item of state.params) {
-			var url = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
-			axios
-				.get(url)
-				.then(response => {
-					var obj = {};
-					state.allData[item.type] = response;
-					Object.assign(obj, state.allData);
-					state.allData = obj;
-					console.log(response);
-				})
-				.catch(error => {
-					console.log(error);
-				});
-		}
-	},
-	insertAllData(state, data) {
-		var obj = {};
-		for (var key in data) {
-			state.allData[key] = data[key];
-		}
-		Object.assign(obj, state.allData);
-		state.allData = obj;
+	// getChartData(state) {
+
+	// },
+	insertAllData(state, { type, data }) {
+		state.allData = Object.assign({}, state.allData, { [type]: data });
 	}
 };
 
@@ -55,11 +36,25 @@ const actions = {
 	insertParams(context, data) {
 		context.commit("insertParams", data);
 	},
-	insertAllData(context, data) {
-		context.commit("insertAllData", data);
-	},
+	// insertAllData(context, data) {
+	// 	context.commit("insertAllData", data);
+	// },
 	initChartData(context, data) {
-		context.commit("getChartData", data);
+		for (let item of state.params) {
+			var url = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+			axios
+				.get(url)
+				.then(response => {
+					context.commit("insertAllData", {
+						type: item.type,
+						data: response.data
+					});
+					console.log(response);
+				})
+				.catch(error => {
+					console.log(error);
+				});
+		}
 	}
 };
 

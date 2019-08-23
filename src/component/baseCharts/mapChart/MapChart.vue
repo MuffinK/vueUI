@@ -15,7 +15,7 @@ export default {
 	mixins: [BaseEchart],
 	asyncComputed: {
 		async covertedData() {
-			var data = R.path(["data"])(this.allData[this.key]) || [];
+			var data = this.allData[this.key] || [];
 			const getMapData = await spawn(new Worker("./dataUtil"));
 			return getMapData(data);
 			// const result = await ;
