@@ -32,27 +32,44 @@ export default {
 		...mapGetters("chartdata", {
 			allData: "getAllData"
 		}),
-		series() {
-			var data = this.allData["barchat"];
+		sortData() {
+			var data = this.allData["pos09"];
 			if (data != undefined) {
-				if (this.type == "2D") {
-					return data.series;
-				} else {
-					var ss = data.series;
-					for (const item of ss) {
-						item.type = "";
-					}
-					return ss;
-				}
+				data.data.sort((a, b) => {
+					return a.scene_value - b.scene_value;
+				});
+				return data.data;
 			}
 			return [];
 		},
-		categories() {
-			var data = this.allData["barchat"];
-			if (data != undefined) {
-				return data.categories;
+		series() {
+			var dataArr = [];
+			for (const item of this.sortData) {
+				dataArr.push(Number(item.scene_value));
 			}
-			return [];
+			var seriesArr = [];
+
+			if (this.type == "2D") {
+				seriesArr.push({
+					name: "设备数",
+					type: "bar",
+					data: dataArr
+				});
+			} else {
+				seriesArr.push({
+					name: "设备数",
+					data: dataArr
+				});
+			}
+			return seriesArr;
+		},
+		categories() {
+			var categoriesArr = [];
+			for (const item of this.sortData) {
+				categoriesArr.push(item.other_param[0]);
+			}
+
+			return categoriesArr;
 		},
 		option() {
 			return {
@@ -85,7 +102,7 @@ export default {
 				tooltip: {
 					headerFormat: "<b>{point.key}</b><br>",
 					pointFormat:
-						'<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+						'<span style="color:{series.color}">\u25CF</span> {series.name}:{point.y} / {point.stackTotal}'
 				},
 				plotOptions: {
 					column: {
@@ -130,11 +147,11 @@ export default {
 		}
 	},
 	created() {
-		this.insertParams({
-			startTime: "2018-02-02",
-			endTime: "2018-08-02",
-			type: "barchat"
-		});
+		// this.insertParams({
+		// 	startTime: "2018-02-02",
+		// 	endTime: "2018-08-02",
+		// 	type: "barchat"
+		// });
 	},
 	methods: {
 		...mapActions("chartdata", ["insertParams"])

@@ -24,7 +24,7 @@
 						<TransitionTradeLine />
 					</a-card>
 					<a-card title="分行交易量" :bordered="false" :style="cardStyle">
-						<Barchart />
+						<BaseBarChart :type="type" />
 					</a-card>
 				</a-col>
 			</a-col>
@@ -33,12 +33,11 @@
 </template>
 <script>
 import MapChart from "../baseCharts/mapChart/MapChart.vue";
-import axios from "axios";
 import TransitionTradeLine from "../baseCharts/lineChart/TransitionTradeLine.vue";
 import Barchart from "../baseCharts/hightCharts/BarChart.vue";
 import IndexLine from "../baseCharts/lineChart/IndexLine.vue";
 import BaseBarChart from "../baseCharts/hightCharts/BaseBarChart.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
 	name: "PosScense",
@@ -55,7 +54,7 @@ export default {
 			cardStyle: {
 				margin: "20px"
 			},
-			type: "3D"
+			type: "2D"
 		};
 	},
 	created() {
@@ -65,43 +64,10 @@ export default {
 		this.invokePushItems("Pos");
 		this.hideTitle();
 		this.initChartData();
-		this.insertAllData({
-			barchat: {
-				categories: [
-					"广东",
-					"广西",
-					"上海",
-					"北京",
-					"河北",
-					"云南",
-					"陕西",
-					"贵州",
-					"湖南"
-				],
-				series: [
-					{
-						name: "活跃",
-						type: "bar",
-						stack: "活跃",
-						data: [220, 333, 553, 245, 243, 521, 152, 357, 854]
-					},
-					{
-						name: "不活跃",
-						type: "bar",
-						stack: "活跃",
-						data: [220, 211, 443, 74, 26, 267, 23, 8, 569]
-					}
-				]
-			}
-		});
 	},
 	methods: {
 		...mapActions("breadcrumb", ["hideTitle", "invokePushItems"]),
-		...mapActions("chartdata", [
-			"insertAllData",
-			"initChartData",
-			"resetParams"
-		])
+		...mapActions("chartdata", ["initChartData", "resetParams"])
 	}
 };
 </script>
