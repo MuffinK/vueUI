@@ -42,19 +42,17 @@ import { mapActions } from "vuex";
 export default {
 	name: "PosScense",
 	components: {
-		Barchart,
 		TransitionTradeLine,
 		MapChart,
 		IndexLine,
-		BaseBarChart,
-		MapChart
+		BaseBarChart
 	},
 	data() {
 		return {
 			cardStyle: {
 				margin: "20px"
 			},
-			type: "2D"
+			type: "3D"
 		};
 	},
 	created() {

@@ -34,43 +34,24 @@ export default {
 			allData: "getAllData"
 		}),
 		sortData() {
-			var data = this.allData["pos09"];
-			if (data != undefined) {
-				data.sort((a, b) => {
-					return a.scene_value - b.scene_value;
-				});
-				return data;
-			}
-			return [];
+			return R.pipe(
+				R.sort((a, b) => b.scene_value - a.scene_value),
+				R.take(15)
+			)(this.allData["pos09"] || []);
 		},
 		series() {
-			var dataArr = [];
-			for (const item of this.sortData) {
-				dataArr.push(Number(item.scene_value));
-			}
-			var seriesArr = [];
-
-			if (this.type == "2D") {
-				seriesArr.push({
+			return [
+				{
 					name: "设备数",
-					type: "bar",
-					data: dataArr
-				});
-			} else {
-				seriesArr.push({
-					name: "设备数",
-					data: dataArr
-				});
-			}
-			return seriesArr;
+					type: this.type == "2D" ? "bar" : undefined,
+					data: R.map(val => Number(R.path(["scene_value"])(val)))(
+						this.sortData
+					)
+				}
+			];
 		},
 		categories() {
-			var categoriesArr = [];
-			for (const item of this.sortData) {
-				categoriesArr.push(item.other_param[0]);
-			}
-
-			return categoriesArr;
+			return R.map(R.path(["other_param", 0]))(this.sortData);
 		},
 		option() {
 			return {
@@ -148,11 +129,12 @@ export default {
 		}
 	},
 	created() {
-		// this.insertParams({
-		// 	startTime: "2018-02-02",
-		// 	endTime: "2018-08-02",
-		// 	type: "barchat"
-		// });
+		this.insertParams({
+			time: "latest",
+			// startTime:
+			// endTime
+			type: "pos09"
+		});
 	},
 	methods: {
 		...mapActions("chartdata", ["insertParams"])

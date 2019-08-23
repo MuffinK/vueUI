@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import * as R from "rambdax";
+import { merge } from "rxjs";
 const state = {
 	allData: {},
 	params: []
@@ -21,11 +22,8 @@ const mutations = {
 	insertParams(state, item) {
 		state.params.push(item);
 	},
-	// getChartData(state) {
-
-	// },
-	insertAllData(state, { type, data }) {
-		state.allData = Object.assign({}, state.allData, { [type]: data });
+	insertAllData(state, payload) {
+		state.allData = R.mergeAll(payload);
 	}
 };
 
@@ -39,22 +37,40 @@ const actions = {
 	// insertAllData(context, data) {
 	// 	context.commit("insertAllData", data);
 	// },
-	initChartData(context, data) {
-		for (let item of state.params) {
-			var url = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
-			axios
-				.get(url)
-				.then(response => {
-					context.commit("insertAllData", {
-						type: item.type,
-						data: response.data
-					});
-					console.log(response);
-				})
-				.catch(error => {
-					console.log(error);
-				});
-		}
+	async initChartData(context) {
+		const queryParmas = context.state.params;
+		const mergedParams = R.groupBy(R.path(["type"]))(queryParmas);
+
+		const mergedTimes = R.map(
+			R.reduce(
+				({ latest, timeIntervals }, val) => ({
+					latest: latest || val.time == "latest",
+					timeIntervals: val.startTime
+						? timeIntervals.concat({
+								startTime: val.startTime,
+								endTime: val.endTime
+						  })
+						: timeIntervals
+				}),
+				{ latest: false, timeIntervals: [] }
+			)
+		)(R.values(mergedParams));
+
+		const allData = await Promise.all(
+			R.map(item => {
+				const getTimePeriodUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+				const getLatestUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+
+				return axios.get(
+					item.time === "latest" ? getLatestUrl : getTimePeriodUrl
+				);
+			})(queryParmas)
+		);
+		const mergedArray = R.map(i => ({
+			[queryParmas[i].type]: allData[i].data
+		}))(Array.from({ length: allData.length }).map((_, i) => i));
+
+		context.commit("insertAllData", mergedArray);
 	}
 };
 

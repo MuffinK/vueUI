@@ -43,10 +43,6 @@ export default {
 				},
 				tooltip: {
 					show: true
-					// formatter:(params)=>{
-					//   let data = "测试1:"+params.name + "<br/>"+"值:"+ params.value[2]+"<br/>"+"地理坐标:[" + params.value[0]+","+params.value[1] +"]";
-					//   return data;
-					// },
 				},
 				visualMap: [
 					{
@@ -125,8 +121,13 @@ export default {
 	},
 	created() {
 		this.insertParams({
-			startTime: "2019-08-02 16:00:00",
-			endTime: "2019-08-02 16:30:00",
+			startTime: "2019-08-20",
+			endTime: "2019-08-22",
+			type: this.key
+		});
+		this.insertParams({
+			startTime: "2019-07-20",
+			endTime: "2019-07-22",
 			type: this.key
 		});
 	},
