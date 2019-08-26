@@ -23,7 +23,7 @@ const mutations = {
 		state.params.push(item);
 	},
 	insertAllData(state, payload) {
-		state.allData = R.mergeAll(payload);
+		state.allData = R.merge(state.allData, { [payload.type]: payload.data });
 	}
 };
 
@@ -56,21 +56,22 @@ const actions = {
 			)
 		)(R.values(mergedParams));
 
-		const allData = await Promise.all(
-			R.map(item => {
-				const getTimePeriodUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
-				const getLatestUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+		R.forEach(item => {
+			const getTimePeriodUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+			const getLatestUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
 
-				return axios.get(
-					item.time === "latest" ? getLatestUrl : getTimePeriodUrl
+			axios
+				.get(item.time === "latest" ? getLatestUrl : getTimePeriodUrl)
+				.then(result =>
+					context.commit("insertAllData", {
+						type: item.type,
+						data: result.data
+					})
 				);
-			})(queryParmas)
-		);
-		const mergedArray = R.map(i => ({
-			[queryParmas[i].type]: allData[i].data
-		}))(Array.from({ length: allData.length }).map((_, i) => i));
-
-		context.commit("insertAllData", mergedArray);
+		})(queryParmas);
+		// const mergedArray = R.map(i => ({
+		// 	[queryParmas[i].type]: allData[i].data
+		// }))(Array.from({ length: allData.length }).map((_, i) => i));
 	}
 };
 
