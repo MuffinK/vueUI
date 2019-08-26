@@ -57,8 +57,8 @@ const actions = {
 		)(R.values(mergedParams));
 
 		R.forEach(item => {
-			const getTimePeriodUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
-			const getLatestUrl = `/iot/last?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+			const getTimePeriodUrl = `/iot/period?scene=${item.type}&time=${item.startTime}--${item.endTime}`;
+			const getLatestUrl = `/iot/last?scene=${item.type}`;
 
 			axios
 				.get(item.time === "latest" ? getLatestUrl : getTimePeriodUrl)

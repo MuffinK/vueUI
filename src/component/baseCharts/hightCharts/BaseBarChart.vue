@@ -33,6 +33,9 @@ export default {
 		...mapGetters("chartdata", {
 			allData: "getAllData"
 		}),
+		isLatest() {
+			return true;
+		},
 		sortData() {
 			return R.pipe(
 				R.sort((a, b) => b.scene_value - a.scene_value),
@@ -129,12 +132,16 @@ export default {
 		}
 	},
 	created() {
-		this.insertParams({
-			time: "latest",
-			// startTime:
-			// endTime
+		var parms = {
 			type: "pos09"
-		});
+		};
+		if (this.isLatest) {
+			parms.time = "latest";
+		} else {
+			parms.startTime = "2019-08-08 16:00";
+			parms.endTime = "2019-08-21 16:00";
+		}
+		this.insertParams(parms);
 	},
 	methods: {
 		...mapActions("chartdata", ["insertParams"])

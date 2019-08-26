@@ -27,6 +27,9 @@ export default {
 		...mapGetters("chartdata", {
 			allData: "getAllData"
 		}),
+		isLatest() {
+			return true;
+		},
 		key() {
 			return "pos09";
 		},
@@ -120,16 +123,15 @@ export default {
 		}
 	},
 	created() {
-		this.insertParams({
-			startTime: "2019-08-20",
-			endTime: "2019-08-22",
+		var parms = {
 			type: this.key
-		});
-		this.insertParams({
-			startTime: "2019-07-20",
-			endTime: "2019-07-22",
-			type: this.key
-		});
+		};
+		if (this.isLatest) {
+			parms.time = "latest";
+		} else {
+			parms.startTime = "2019-08-08 16:00";
+			parms.endTime = "2019-08-21 16:00";
+		}
 	},
 	methods: {
 		...mapActions("chartdata", ["insertParams"])
