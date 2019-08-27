@@ -23,7 +23,13 @@ const mutations = {
 		state.params.push(item);
 	},
 	insertAllData(state, payload) {
-		state.allData = R.merge(state.allData, { [payload.type]: payload.data });
+		if (payload.secoundType != undefined) {
+			state.allData = R.merge(state.allData, {
+				[payload.type]: { [payload.secoundType]: payload.data }
+			});
+		} else {
+			state.allData = R.merge(state.allData, { [payload.type]: payload.data });
+		}
 	}
 };
 
@@ -65,6 +71,7 @@ const actions = {
 				.then(result =>
 					context.commit("insertAllData", {
 						type: item.type,
+						secoundType: item.time === "latest" ? "latest" : "time",
 						data: result.data
 					})
 				);

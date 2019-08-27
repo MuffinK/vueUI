@@ -34,13 +34,16 @@ export default {
 			allData: "getAllData"
 		}),
 		isLatest() {
-			return true;
+			return false;
 		},
 		sortData() {
+			var list = this.isLatest
+				? R.path(["pos09", "latest"])(this.allData)
+				: R.path(["pos09", "time"])(this.allData);
 			return R.pipe(
 				R.sort((a, b) => b.scene_value - a.scene_value),
 				R.take(15)
-			)(this.allData["pos09"] || []);
+			)(list || []);
 		},
 		series() {
 			return [
@@ -138,8 +141,8 @@ export default {
 		if (this.isLatest) {
 			parms.time = "latest";
 		} else {
-			parms.startTime = "2019-08-08 16:00";
-			parms.endTime = "2019-08-21 16:00";
+			parms.startTime = "2019-08-21 16:00";
+			parms.endTime = "2019-08-21 16:30";
 		}
 		this.insertParams(parms);
 	},
