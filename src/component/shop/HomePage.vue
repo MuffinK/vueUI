@@ -7,10 +7,14 @@
 				</a-col>
 				<a-col :span="8" />
 				<a-col :span="8" style="display:flex;height:100%">
-					<a-button class="btn">登录</a-button>
-					<a-button class="btn">注册</a-button>
-					<a-button class="btn">预留</a-button>
-					<a-button icon="shop" class="shopCarBtn" />
+					<a-button class="btn" @click="login">login</a-button>
+					<a-button class="btn">regist</a-button>
+					<a-button class="btn">online number: {{ onlineNumber }}</a-button>
+					<a-button
+						icon="shop"
+						class="shopCarBtn"
+						@click="$router.push('Cart')"
+					/>
 				</a-col>
 			</a-row>
 		</div>
@@ -21,7 +25,7 @@
 					style="display:flex;flex-direction: column;height: 100%;}"
 				>
 					<div class="route">
-						<a-button class="routeBtn">1</a-button>
+						<a-button class="routeBtn" @click="toDetail">1</a-button>
 						<a-button class="routeBtn">2</a-button>
 						<a-button class="routeBtn">3</a-button>
 						<a-button class="routeBtn">4</a-button>
@@ -79,12 +83,20 @@ export default {
 			cardStyle: {
 				margin: "20px"
 			},
-			type: "3D"
+			type: "3D",
+			onlineNumber: "1"
 		};
 	},
 	created() {},
 	mounted() {},
-	methods: {}
+	methods: {
+		login() {
+			this.$router.push("LoginPage");
+		},
+		toDetail() {
+			this.$router.push("Detail");
+		}
+	}
 };
 </script>
 <style scoped>
@@ -151,9 +163,9 @@ export default {
 }
 
 .bottomImg {
-	height: 240px;
-	width: 430px;
-	padding: 30px;
+	height: 100%;
+	width: auto;
+	padding: 0 30px;
 }
 
 .bottomArea {

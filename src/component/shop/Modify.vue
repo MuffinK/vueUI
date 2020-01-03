@@ -7,7 +7,7 @@
 					:span="8"
 					style="display:flex;height:100%;align-items: center;justify-content: center;"
 				>
-					<h1>LOGIN</h1>
+					<h1>Modify</h1>
 				</a-col>
 				<a-col :span="8" />
 			</a-row>
@@ -24,12 +24,10 @@
 						v-decorator="[
 							'userName',
 							{
-								rules: [
-									{ required: true, message: 'Please input your username!' }
-								]
+								rules: [{ required: true, message: 'Please input name!' }]
 							}
 						]"
-						placeholder="Username"
+						placeholder="Name"
 					>
 						<a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
 					</a-input>
@@ -37,43 +35,32 @@
 				<a-form-item>
 					<a-input
 						v-decorator="[
-							'password',
+							'userName',
 							{
-								rules: [
-									{ required: true, message: 'Please input your Password!' }
-								]
+								rules: [{ required: true, message: 'Please input Type!' }]
 							}
 						]"
-						type="password"
-						placeholder="Password"
-					>
-						<a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
-					</a-input>
+						placeholder="Type"
+					/>
 				</a-form-item>
 				<a-form-item>
-					<a-checkbox
+					<a-input
 						v-decorator="[
-							'remember',
+							'Price',
 							{
-								valuePropName: 'checked',
-								initialValue: true
+								rules: [{ required: true, message: 'Please input Price!' }]
 							}
 						]"
-					>
-						Remember me
-					</a-checkbox>
-					<a class="login-form-forgot">
-						Forgot password
-					</a>
-					<a-button type="primary" class="login-form-button">
-						Log in
-					</a-button>
-					Or
-					<a @click="regist">
-						register now!
-					</a>
+						type="number"
+						placeholder="Price"
+					/>
 				</a-form-item>
+
+				<a-button type="primary" class="login-form-button">
+					save
+				</a-button>
 			</a-form>
+			<a-button class="btn" @click="$router.push('HomePage')">Back</a-button>
 		</div>
 		<div class="bottomArea">
 			<a-col :span="16" />

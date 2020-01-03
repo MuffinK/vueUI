@@ -105,20 +105,7 @@
 							}
 						]"
 						style="width: 100%"
-					>
-						<a-select
-							slot="addonBefore"
-							v-decorator="['prefix', { initialValue: '86' }]"
-							style="width: 70px"
-						>
-							<a-select-option value="86">
-								+86
-							</a-select-option>
-							<a-select-option value="87">
-								+87
-							</a-select-option>
-						</a-select>
-					</a-input>
+					/>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="Website">
 					<a-auto-complete
@@ -140,7 +127,7 @@
 						<a-input />
 					</a-auto-complete>
 				</a-form-item>
-				<a-form-item
+				<!-- <a-form-item
 					v-bind="formItemLayout"
 					label="Captcha"
 					extra="We must make sure that your are a human."
@@ -165,7 +152,7 @@
 							<a-button>Get captcha</a-button>
 						</a-col>
 					</a-row>
-				</a-form-item>
+				</a-form-item> -->
 				<a-form-item v-bind="tailFormItemLayout">
 					<a-checkbox v-decorator="['agreement', { valuePropName: 'checked' }]">
 						I have read the

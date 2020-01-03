@@ -7,73 +7,27 @@
 					:span="8"
 					style="display:flex;height:100%;align-items: center;justify-content: center;"
 				>
-					<h1>LOGIN</h1>
+					<h1>Cart</h1>
 				</a-col>
 				<a-col :span="8" />
 			</a-row>
 		</div>
 		<div class="middleArea">
-			<a-form
-				id="components-form-demo-normal-login"
-				:form="form"
-				class="login-form"
-				@submit="handleSubmit"
-			>
-				<a-form-item>
-					<a-input
-						v-decorator="[
-							'userName',
-							{
-								rules: [
-									{ required: true, message: 'Please input your username!' }
-								]
-							}
-						]"
-						placeholder="Username"
-					>
-						<a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
-					</a-input>
-				</a-form-item>
-				<a-form-item>
-					<a-input
-						v-decorator="[
-							'password',
-							{
-								rules: [
-									{ required: true, message: 'Please input your Password!' }
-								]
-							}
-						]"
-						type="password"
-						placeholder="Password"
-					>
-						<a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
-					</a-input>
-				</a-form-item>
-				<a-form-item>
-					<a-checkbox
-						v-decorator="[
-							'remember',
-							{
-								valuePropName: 'checked',
-								initialValue: true
-							}
-						]"
-					>
-						Remember me
-					</a-checkbox>
-					<a class="login-form-forgot">
-						Forgot password
-					</a>
-					<a-button type="primary" class="login-form-button">
-						Log in
-					</a-button>
-					Or
-					<a @click="regist">
-						register now!
-					</a>
-				</a-form-item>
-			</a-form>
+			<a-list item-layout="horizontal" :data-source="cartData">
+				<a-list-item slot="renderItem" slot-scope="item, index">
+					<a slot="title">{{ "name" }}</a>
+					<div class="itemList">
+						<img class="itemImg" alt="sss" src="../../picture/pad.png" />
+						<div width="30%">name: 2</div>
+						<a-list-item-meta width="30%" description="price: 2" />
+						<a-button type="danger">DELETE</a-button>
+					</div>
+				</a-list-item>
+			</a-list>
+			<div class="itemList" style="padding-top:30px">
+				<a-button class="btn" type="primary">Pay now</a-button>
+				<a-button class="btn" @click="$router.push('HomePage')">Back</a-button>
+			</div>
 		</div>
 		<div class="bottomArea">
 			<a-col :span="16" />
@@ -100,23 +54,38 @@ import { Button } from "ant-design-vue";
 Vue.use(Button);
 
 export default {
-	name: "LoginPage",
+	name: "RegistPage",
 	components: {},
 	data() {
 		return {
-			cardStyle: {
-				margin: "20px"
+			cartData: [1, 2],
+			formItemLayout: {
+				labelCol: {
+					xs: { span: 24 },
+					sm: { span: 8 }
+				},
+				wrapperCol: {
+					xs: { span: 24 },
+					sm: { span: 16 }
+				}
 			},
-			type: "3D"
+			tailFormItemLayout: {
+				wrapperCol: {
+					xs: {
+						span: 24,
+						offset: 0
+					},
+					sm: {
+						span: 16,
+						offset: 8
+					}
+				}
+			}
 		};
 	},
 	created() {},
 	mounted() {},
-	methods: {
-		regist() {
-			this.$router.push("RegistPage");
-		}
-	}
+	methods: {}
 };
 </script>
 <style scoped>
@@ -143,7 +112,10 @@ export default {
 	width: 150px;
 	margin-left: 100px;
 }
-
+.itemImg {
+	max-height: 50px;
+	max-width: 50px;
+}
 .shopCarBtn {
 	height: 40px;
 	width: 60px;
@@ -156,8 +128,6 @@ export default {
 	margin-right: 40px;
 	width: 150px;
 	height: 40px;
-	margin-top: auto;
-	margin-bottom: auto;
 }
 
 .middleArea {
@@ -201,13 +171,12 @@ export default {
 h1 {
 	text-align: center;
 }
-#components-form-demo-normal-login .login-form {
-	max-width: 300px;
+.itemList {
+	display: flex;
+	width: 600px;
+	justify-content: space-around;
 }
-#components-form-demo-normal-login .login-form-forgot {
-	float: right;
-}
-#components-form-demo-normal-login .login-form-button {
-	width: 100%;
+.itemList > div {
+	flex: 0 0 30%;
 }
 </style>

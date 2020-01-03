@@ -1,8 +1,8 @@
 <template>
 	<div class="item">
-		<img class="itemImg" alt="sss" src="../../picture/pad.png" />
+		<img class="itemImg" alt="sss" src="../../picture/pad.png" >
 		<div class="detailArea">
-			<div class="itemTitle">商品名称</div>
+			<div class="itemTitle">name</div>
 			<div class="itemPrice">¥99.99</div>
 		</div>
 	</div>

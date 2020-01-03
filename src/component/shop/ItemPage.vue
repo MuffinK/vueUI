@@ -48,7 +48,7 @@
 					:span="8"
 					style="height: 100%;display:flex;align-items: center;justify-content: center;}"
 				>
-					<a-button type="primary">BACK</a-button>
+					<a-button type="primary" @click="toHome">BACK</a-button>
 				</a-col>
 			</a-row>
 		</div>
@@ -92,7 +92,11 @@ export default {
 	},
 	created() {},
 	mounted() {},
-	methods: {}
+	methods: {
+		toHome() {
+			this.$router.push("HomePage");
+		}
+	}
 };
 </script>
 <style scoped>
