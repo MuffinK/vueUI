@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+    "files.eol": "\r\n",
+		"files.associations": {
+			"*.vue": "vue",
+			"*.mjs": "javascript"
+		},
+		"eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {"language": "vue", "autoFix": true},
+      {"language": "typescript", "autoFix": true}
+    ],
+		"eslint.autoFixOnSave": true,
+    "vetur.format.defaultFormatter.css": "prettier",
+    "vetur.format.defaultFormatter.js": "prettier",
+		"vetur.format.defaultFormatter.html": "prettier",
+		"vetur.completion.tagCasing": "initial",
+		"vetur.format.options.useTabs": true,
+		"[vue]": {
+			"editor.defaultFormatter": "octref.vetur"
+		},
+		"[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
+	}
+}
