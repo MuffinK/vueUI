@@ -1,23 +1,6 @@
 <template>
 	<div class="contain">
-		<div class="topArea">
-			<a-row style="width:100%">
-				<a-col :span="8">
-					<img class="logoImg" src="../../icons/up.png" />
-				</a-col>
-				<a-col :span="8" />
-				<a-col :span="8" style="display:flex;height:100%">
-					<a-button class="btn" @click="login">login</a-button>
-					<a-button class="btn">regist</a-button>
-					<a-button class="btn">online number: {{ onlineNumber }}</a-button>
-					<a-button
-						icon="shop"
-						class="shopCarBtn"
-						@click="$router.push('Cart')"
-					/>
-				</a-col>
-			</a-row>
-		</div>
+		<TopArea />
 		<div class="middleArea">
 			<a-row style="width:100%;height:500px">
 				<a-col
@@ -36,48 +19,34 @@
 					:span="18"
 					style="display:flex;flex-direction: column;height: 100%;}"
 				>
-					<img class="homeImg" src="../../picture/canpus.jpg" />
+					<img class="homeImg" src="../../picture/canpus.jpg" >
 				</a-col>
 			</a-row>
 			<a-row style="width:100%;height:200px">
 				<a-col :span="8" style="height: 100%;}">
-					<img class="bottomImg" alt="sss" src="../../picture/pad.png" />
+					<img class="bottomImg" alt="sss" src="../../picture/pad.png" >
 				</a-col>
 				<a-col :span="8" style="height: 100%;}">
-					<img class="bottomImg" alt="sss" src="../../picture/door.png" />
+					<img class="bottomImg" alt="sss" src="../../picture/door.png" >
 				</a-col>
 				<a-col :span="8" style="height: 100%;}">
-					<img class="bottomImg" alt="sss" src="../../picture/scien.jpg" />
+					<img class="bottomImg" alt="sss" src="../../picture/scien.jpg" >
 				</a-col>
 			</a-row>
-		</div>
-		<div class="bottomArea">
-			<a-col :span="16" />
-			<a-col
-				:span="8"
-				style="display:flex;flex-direction: column;align-items: center;justify-content: center;}"
-			>
-				<div class="contact">
-					contact details
-				</div>
-				<div class="contact">
-					Mobile phone: xxxxxxxxx
-				</div>
-				<div class="contact">
-					Email: xxxxxxxx
-				</div>
-			</a-col>
+			<BottomArea />
 		</div>
 	</div>
 </template>
 <script>
 import Vue from "vue";
 import { Button } from "ant-design-vue";
+import TopArea from "./TopArea.vue";
+import BottomArea from "./BottomArea.vue";
 Vue.use(Button);
 
 export default {
 	name: "HomePage",
-	components: {},
+	components: { TopArea, BottomArea },
 	data() {
 		return {
 			cardStyle: {

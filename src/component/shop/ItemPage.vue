@@ -1,17 +1,6 @@
 <template>
 	<div class="contain">
-		<div class="topArea">
-			<a-row style="width:100%">
-				<a-col :span="8" />
-				<a-col
-					:span="8"
-					style="display:flex;height:100%;align-items: center;justify-content: center;"
-				>
-					<h1>TITLE</h1>
-				</a-col>
-				<a-col :span="8" />
-			</a-row>
-		</div>
+		<TopArea />
 		<div class="middleArea">
 			<a-row style="width:100%;height:500px">
 				<a-col
@@ -52,28 +41,15 @@
 				</a-col>
 			</a-row>
 		</div>
-		<div class="bottomArea">
-			<a-col :span="16" />
-			<a-col
-				:span="8"
-				style="display:flex;flex-direction: column;align-items: center;justify-content: center;}"
-			>
-				<div class="contact">
-					contact details
-				</div>
-				<div class="contact">
-					Mobile phone: xxxxxxxxx
-				</div>
-				<div class="contact">
-					Email: xxxxxxxx
-				</div>
-			</a-col>
-		</div>
+		<BottomArea />
 	</div>
 </template>
 <script>
 import Vue from "vue";
 import { Button } from "ant-design-vue";
+
+import TopArea from "./TopArea.vue";
+import BottomArea from "./BottomArea.vue";
 import Item from "./Item";
 Vue.use(Button);
 

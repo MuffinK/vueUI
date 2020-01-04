@@ -1,40 +1,39 @@
 <template>
 	<div class="contain">
-		<div class="topArea">
-			<div class="topArea">
-				<a-row style="width:100%">
-					<a-col :span="8">
-						<img class="logoImg" src="../../icons/up.png" />
-					</a-col>
-					<a-col :span="8" />
-					<a-col :span="8" style="display:flex;height:100%">
-						<a-button class="btn" @click="toLogin">login</a-button>
-						<a-button class="btn" @click="toRegist">regist</a-button>
-						<a-button class="btn">online number: {{ onlineNumber }}</a-button>
-						<a-button icon="shop" class="shopCarBtn" />
-					</a-col>
-				</a-row>
-			</div>
-		</div>
+		<TopArea />
 		<div class="middleArea">
 			<div class="detail">
 				<div class="item">
-					<img class="itemImg" alt="sss" src="../../picture/pad.png" >
+					<img class="itemImg" alt="sss" src="../../picture/pad.png" />
 				</div>
 				<div class="detailArea">
 					<div class="itemTitle">name</div>
-					<div class="itemPrice">¥99.99</div>
+					<div class="itemPrice">$99.99</div>
 					<div id="btns">
-						<a-button v-if="role == 'custome'" class="btn" @click="addToBasket"
+						<a-button
+							v-if="role == 'customer'"
+							class="btn"
+							@click="$router.push('Cart')"
 							>Add to basket</a-button
 						>
-						<a-button v-if="role == 'none'" class="btn" @click="toLogin"
+						<a-button
+							v-if="role == 'none'"
+							class="btn"
+							@click="$router.push('LoginPage')"
 							>Login</a-button
 						>
-						<a-button v-if="role == 'admin'" class="btn" @click="toModify"
+						<a-button
+							v-if="role == 'admin'"
+							class="btn"
+							type="primy"
+							@click="$router.push('Modify')"
 							>Modify</a-button
 						>
-						<a-button v-if="role == 'admin'" class="btn" @click="toDelete"
+						<a-button
+							v-if="role == 'admin'"
+							class="btn"
+							type="danger"
+							@click="toDelete"
 							>Delete</a-button
 						>
 					</div>
@@ -44,29 +43,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="bottomArea">
-			<a-col :span="16" />
-			<a-col
-				:span="8"
-				style="display:flex;flex-direction: column;align-items: center;justify-content: center;}"
-			>
-				<div class="contact">
-					contact details
-				</div>
-				<div class="contact">
-					Mobile phone: xxxxxxxxx
-				</div>
-				<div class="contact">
-					Email: xxxxxxxx
-				</div>
-			</a-col>
-		</div>
+
+		<BottomArea />
 	</div>
 </template>
 <script>
 import Vue from "vue";
+import TopArea from "./TopArea.vue";
+import BottomArea from "./BottomArea.vue";
 export default {
 	name: "Item",
+	components: {
+		TopArea,
+		BottomArea
+	},
 	data() {
 		return {
 			role: "none"

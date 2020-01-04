@@ -65,11 +65,11 @@
 					<a class="login-form-forgot">
 						Forgot password
 					</a>
-					<a-button type="primary" class="login-form-button">
+					<a-button type="primary" class="login-form-button" html-type="submit">
 						Log in
 					</a-button>
 					Or
-					<a @click="regist">
+					<a @click="$router.push('RegisterPage')">
 						register now!
 					</a>
 				</a-form-item>
@@ -104,6 +104,7 @@ export default {
 	components: {},
 	data() {
 		return {
+			form: this.$form.createForm(this, { name: "coordinated" }),
 			cardStyle: {
 				margin: "20px"
 			},
@@ -113,8 +114,20 @@ export default {
 	created() {},
 	mounted() {},
 	methods: {
-		regist() {
-			this.$router.push("RegistPage");
+		handleSubmit() {
+			this.form.validateFields((err, values) => {
+				if (!err) {
+					this.$notification.open({
+						message: "Success",
+						description: "Register Success, turn to home page now",
+						onClose: () => {
+							this.$router.push("HomePage");
+						}
+					});
+					localStorage["role"] = "admin";
+					console.log("Received values of form: ", values);
+				}
+			});
 		}
 	}
 };

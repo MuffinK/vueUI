@@ -42,9 +42,6 @@
 									{
 										required: true,
 										message: 'Please input your password!'
-									},
-									{
-										validator: validateToNextPassword
 									}
 								]
 							}
@@ -63,25 +60,24 @@
 										message: 'Please confirm your password!'
 									},
 									{
-										validator: compareToFirstPassword
+										validator: validateToNextPassword
 									}
 								]
 							}
 						]"
 						type="password"
-						@blur="handleConfirmBlur"
 					/>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout">
 					<span slot="label">
-						Nickname&nbsp;
+						Name&nbsp;
 						<a-tooltip title="What do you want others to call you?">
 							<a-icon type="question-circle-o" />
 						</a-tooltip>
 					</span>
 					<a-input
 						v-decorator="[
-							'nickname',
+							'Nickname',
 							{
 								rules: [
 									{
@@ -107,52 +103,7 @@
 						style="width: 100%"
 					/>
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="Website">
-					<a-auto-complete
-						v-decorator="[
-							'website',
-							{ rules: [{ required: true, message: 'Please input website!' }] }
-						]"
-						placeholder="website"
-						@change="handleWebsiteChange"
-					>
-						<template slot="dataSource">
-							<a-select-option
-								v-for="website in autoCompleteResult"
-								:key="website"
-							>
-								{{ website }}
-							</a-select-option>
-						</template>
-						<a-input />
-					</a-auto-complete>
-				</a-form-item>
-				<!-- <a-form-item
-					v-bind="formItemLayout"
-					label="Captcha"
-					extra="We must make sure that your are a human."
-				>
-					<a-row :gutter="8">
-						<a-col :span="12">
-							<a-input
-								v-decorator="[
-									'captcha',
-									{
-										rules: [
-											{
-												required: true,
-												message: 'Please input the captcha you got!'
-											}
-										]
-									}
-								]"
-							/>
-						</a-col>
-						<a-col :span="12">
-							<a-button>Get captcha</a-button>
-						</a-col>
-					</a-row>
-				</a-form-item> -->
+
 				<a-form-item v-bind="tailFormItemLayout">
 					<a-checkbox v-decorator="['agreement', { valuePropName: 'checked' }]">
 						I have read the
@@ -197,6 +148,7 @@ export default {
 	components: {},
 	data() {
 		return {
+			form: this.$form.createForm(this, { name: "coordinated" }),
 			formItemLayout: {
 				labelCol: {
 					xs: { span: 24 },
@@ -223,7 +175,28 @@ export default {
 	},
 	created() {},
 	mounted() {},
-	methods: {}
+	methods: {
+		handleSubmit() {
+			this.form.validateFields((err, values) => {
+				if (!err) {
+					console.log("Received values of form: ", values);
+					this.$notification.open({
+						message: "Success",
+						description: "Register Success, turn to home page now",
+						onClose: () => {
+							this.$router.push("LoginPage");
+						}
+					});
+				}
+			});
+		},
+		validateToNextPassword() {
+			return (
+				this.form.getFieldValue("confirm") ==
+				this.form.getFieldValue("password")
+			);
+		}
+	}
 };
 </script>
 <style scoped>
@@ -234,7 +207,7 @@ export default {
 	flex-direction: column;
 }
 .topArea {
-	height: 150px;
+	height: 100px;
 	width: 100%;
 	background-color: aquamarine;
 	border-bottom: 1px #c3c3c3 solid;

@@ -6,7 +6,7 @@ const LoginPage = () =>
 	import(
 		/* webpackChunkName: "group-OperPage" */ "../component/shop/LoginPage.vue"
 	);
-const RegistPage = () =>
+const RegisterPage = () =>
 	import(
 		/* webpackChunkName: "group-OperPage" */ "../component/shop/RegistPage.vue"
 	);
@@ -29,7 +29,7 @@ var routes = [];
 routes = Array.prototype.concat.apply(routes, [
 	{ name: "/LoginPage", path: "/LoginPage", component: LoginPage },
 	{ name: "/", path: "/", component: HomePage },
-	{ name: "/RegistPage", path: "/RegistPage", component: RegistPage },
+	{ name: "/RegisterPage", path: "/RegisterPage", component: RegisterPage },
 	{ name: "/ItemPage", path: "/ItemPage", component: ItemPage },
 	{ name: "/HomePage", path: "/HomePage", component: HomePage },
 	{ name: "/Detail", path: "/Detail", component: Detail },
