@@ -14,6 +14,7 @@ module.exports = {
 		"eslint-config-prettier/@typescript-eslint"
 	],
 	plugins: ["vue", "prettier"],
+	parser: "vue-eslint-parser",
 	parserOptions: {
 		parser: "@typescript-eslint/parser",
 		ecmaFeatures: {
