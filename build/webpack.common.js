@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
-const ThreadsPlugin = require("threads-plugin");
+const PnpWebpackPlugin = require(`pnp-webpack-plugin`);
 module.exports = {
 	module: {
 		rules: [
@@ -67,6 +67,8 @@ module.exports = {
 		"/src/config": "config"
 	},
 	resolve: {
+		plugins: [PnpWebpackPlugin],
+
 		extensions: [".js", ".css", ".scss", ".vue", ".png", ".ts"],
 		alias: {
 			vue$: "vue/dist/vue.esm.js",
@@ -74,9 +76,13 @@ module.exports = {
 			// 'moment': 'moment/src/moment'
 		}
 	},
+	resolveLoader: {
+    plugins: [
+      PnpWebpackPlugin.moduleLoader(module),
+    ],
+  },
 	plugins: [
 		// new ModuleConcatenationPlugin(),
-		new ThreadsPlugin(),
 		new HtmlWebpackPlugin({
 			name: "index",
 			filename: "index.html",
