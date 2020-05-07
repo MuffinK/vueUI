@@ -8,8 +8,6 @@ import routes from "./routers/index";
 import store from "./store/index"; //引入store
 
 import VueECharts from "vue-echarts";
-import "echarts";
-import "echarts-gl";
 import AsyncComputed from "vue-async-computed";
 
 Vue.use(AsyncComputed);

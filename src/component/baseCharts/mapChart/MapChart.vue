@@ -10,13 +10,11 @@ import * as R from "rambdax";
 import BaseEchart from "../../baseLayout/BaseEchart.vue";
 import "./china.js";
 import { mapGetters, mapActions } from "vuex";
-import { spawn, Thread, Worker } from "threads";
 export default {
 	mixins: [BaseEchart],
 	asyncComputed: {
 		async covertedData() {
 			var data = this.allData[this.key] || [];
-			const getMapData = await spawn(new Worker("./dataUtil"));
 			return getMapData(data);
 			// const result = await ;
 			// await Thread.terminate(getMapData);

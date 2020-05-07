@@ -1,6 +1,5 @@
 import axios from "axios";
 import * as R from "rambdax";
-import { merge } from "rxjs";
 const state = {
 	allData: {},
 	params: []
